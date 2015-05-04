@@ -1,0 +1,49 @@
+PODS:
+  - BlocksKit (2.2.5):
+    - BlocksKit/All (= 2.2.5)
+  - BlocksKit/All (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+    - BlocksKit/MessageUI
+    - BlocksKit/UIKit
+  - BlocksKit/Core (2.2.5)
+  - BlocksKit/DynamicDelegate (2.2.5)
+  - BlocksKit/MessageUI (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BlocksKit/UIKit (2.2.5):
+    - BlocksKit/Core
+    - BlocksKit/DynamicDelegate
+  - BmobSDK (1.5.5)
+  - EaseMobSDK (2.1.5)
+  - MagicalRecord (2.2):
+    - MagicalRecord/Core (= 2.2)
+  - MagicalRecord/Core (2.2)
+  - MBProgressHUD (0.9.1)
+  - SDWebImage (3.7.2):
+    - SDWebImage/Core (= 3.7.2)
+  - SDWebImage/Core (3.7.2)
+  - SVPullToRefresh (0.4.1)
+  - TMRoutable (0.1.6)
+
+DEPENDENCIES:
+  - BlocksKit (~> 2.2.5)
+  - BmobSDK (~> 1.5.5)
+  - EaseMobSDK (~> 2.1.5)
+  - MagicalRecord (~> 2.2)
+  - MBProgressHUD (~> 0.8)
+  - SDWebImage (~> 3.7.2)
+  - SVPullToRefresh (~> 0.4.1)
+  - TMRoutable (~> 0.1.6)
+
+SPEC CHECKSUMS:
+  BlocksKit: 7f422b971407001178d181a43b99014ea2591fe6
+  BmobSDK: 59a351d94ab6b35e0c7a07cf83329525ca8247aa
+  EaseMobSDK: 7fa8a57a336b01d9cea71de831c5c9a1cb2acf00
+  MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
+  MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
+  SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
+  TMRoutable: 8482d7e7afbec946de0ce81eec9b95e9e2ce0d01
+
+COCOAPODS: 0.35.0

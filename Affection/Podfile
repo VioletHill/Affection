@@ -1,0 +1,15 @@
+platform :ios, '7.0'
+
+# ignore all warnings from all pods
+inhibit_all_warnings!
+
+
+pod 'BmobSDK', '~> 1.5.5'
+pod 'MagicalRecord', '~> 2.2'
+pod 'EaseMobSDK', '~> 2.1.5'
+pod 'BlocksKit', '~> 2.2.5'
+pod 'SVPullToRefresh', '~> 0.4.1'
+pod 'SDWebImage', '~> 3.7.2'
+pod 'TMRoutable', '~> 0.1.6'
+pod 'MBProgressHUD' , '~> 0.8'
+pod 'UIActivityIndicator-for-SDWebImage', '~> 1.2'
