@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import <BmobSDK/Bmob.h>
+#import <TMRoutable/Routable.h>
 
 @interface AppDelegate ()
 
@@ -19,6 +20,7 @@
     // Override point for customization after application launch.
     [Bmob registerWithAppKey:@"479d31c66b848ced6d44d088f7ddc9ab"];
     
+    [self setupRoutable];
     return YES;
 }
 
@@ -42,6 +44,18 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+- (void)setupRoutable
+{
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"viewController" ofType:@"plist"];
+    NSDictionary *controllers = [[NSDictionary alloc] initWithContentsOfFile:path];
+    
+    for (NSString *key in controllers.allKeys) {
+        [[Routable sharedRouter] map:key toController:NSClassFromString(controllers[key])];
+    }
+    
+    [[Routable sharedRouter] setIgnoresExceptions:YES];
 }
 
 @end

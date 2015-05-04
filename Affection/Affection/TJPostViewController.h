@@ -1,13 +1,13 @@
 //
-//  TJRegisterViewController.h
+//  TJPostViewController.h
 //  Affection
 //
-//  Created by 邱峰 on 5/3/15.
+//  Created by 邱峰 on 5/4/15.
 //  Copyright (c) 2015 TongjiUniversity. All rights reserved.
 //
 
 #import "TJBaseViewController.h"
 
-@interface TJRegisterViewController : TJBaseViewController
+@interface TJPostViewController : TJBaseViewController
 
 @end

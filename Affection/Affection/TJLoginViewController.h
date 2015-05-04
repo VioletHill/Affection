@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 TongjiUniversity. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "TJBaseViewController.h"
 
-@interface TJLoginViewController : UIViewController
+@interface TJLoginViewController : TJBaseViewController
 
 
 
