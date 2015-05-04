@@ -15,6 +15,8 @@
 
 + (BOOL)isAvailableAccount:(NSString *)account;
 
++ (BOOL)isAvailableName:(NSString *)name;
+
 + (int)getMinPasswordLength;
 
 + (BOOL)isAvailablePassword:(NSString *)password;

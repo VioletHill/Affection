@@ -27,7 +27,7 @@
 - (instancetype)init
 {
     if (self = [super init]) {
-        
+        self.gender = TJUserGenderMale;
     }
     return self;
 }
@@ -79,11 +79,11 @@
 
 - (TJUserGender)gender
 {
-    if ([[self objectForKey:@"gender"] isEqualToNumber:@(0)]) {
-        return TJUserGenderMale;
+    if ([[self objectForKey:@"gender"] isEqualToNumber:@(1)]) {
+        return TJUserGenderFemale;
     }
     else {
-        return TJUserGenderFemale;
+        return TJUserGenderMale;
     }
 }
 
@@ -101,13 +101,22 @@
 
 + (TJUser *)copyWithUser:(BmobUser *)user
 {
+    if (user == nil) {
+        return nil;
+    }
+    
     TJUser *tUser = [[TJUser alloc] init];
     tUser.name = [user objectForKey:@"name"];
     tUser.mobileNumber = [user objectForKey:@"mobileNumber"];
     tUser.userName = [user objectForKey:@"userName"];
     tUser.password = [user objectForKey:@"password"];
-    TJUserGender gender = TJUserGenderFemale;
+    tUser.objectId = user.objectId;
+    tUser.updatedAt = user.updatedAt;
+    tUser.createdAt = user.createdAt;
+    tUser.className = user.className;
+    tUser.ACL = user.ACL;
     
+    TJUserGender gender = TJUserGenderFemale;
     if ([[user objectForKey:@"gender"] isEqualToNumber:@(0)]) {
         gender = TJUserGenderMale;
     }

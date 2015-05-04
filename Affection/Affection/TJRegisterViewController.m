@@ -45,7 +45,9 @@
     
     newUser.mobileNumber = mobileNumber;
     newUser.userName = mobileNumber;
+    newUser.name = mobileNumber;
     newUser.password = password;
+    
     
     MBProgressHUD *loadingProgress = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"注册中.."];
     [newUser signUpInBackgroundWithBlock:^(BOOL success, NSError *error) {

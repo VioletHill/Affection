@@ -37,6 +37,16 @@
     }
 }
 
++ (BOOL)isAvailableName:(NSString *)name
+{
+    if ([name rangeOfString:@" "].location != NSNotFound) {
+        return NO;
+    }
+    else {
+        return YES;
+    }
+}
+
 + (int)getMinPasswordLength
 {
     return 6;

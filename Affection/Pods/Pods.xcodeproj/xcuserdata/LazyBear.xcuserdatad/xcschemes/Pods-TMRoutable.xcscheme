@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6A7CF43E91161FCCC400BCB2"
+               BlueprintIdentifier = "86C127FB13EA88BE720D7F02"
                BuildableName = "libPods-TMRoutable.a"
                BlueprintName = "Pods-TMRoutable"
                ReferencedContainer = "container:Pods.xcodeproj">
