@@ -48,11 +48,11 @@ typedef NS_ENUM(NSInteger, TJMaterialStatus) {      //二手物品状态 是否�
 
 @property (nonatomic, strong) TJUser *poster;                   //发布者
 
-@property (nonatomic, strong) NSNumber *hoverImageWidth;        // 首页显示的图片的长和宽 这样可以按照比例放大缩小
+@property (nonatomic, strong) NSNumber *hoverImageWidth;        //首页显示的图片的长和宽 这样可以按照比例放大缩小
 @property (nonatomic, strong) NSNumber *hoverImageHeight;       //
 
 @property (nonatomic, strong) TJMaterialImage *hoverImage;      // 首页显示的图片 其实就是 images[0]
 
-@property (nonatomic, assign) TJMaterialStatus status;          //
+@property (nonatomic, assign) TJMaterialStatus status;          //d
 
 @end

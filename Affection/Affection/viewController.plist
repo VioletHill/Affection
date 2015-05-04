@@ -7,6 +7,6 @@
     <key>login</key>
     <string>TJLoginViewController</string>
     <key>post</key>
-    <string>TJPostViewContrller</string>
+    <string>TJPostViewController</string>
 </dict>
 </plist>

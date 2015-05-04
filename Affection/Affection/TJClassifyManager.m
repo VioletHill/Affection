@@ -21,7 +21,7 @@
     static dispatch_once_t token;
     static id manager;
     dispatch_once(&token, ^() {
-        manager = [[TJClassifyManager alloc] init];
+        manager = [[self alloc] init];
     });
     return manager;
 }

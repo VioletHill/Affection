@@ -21,6 +21,7 @@
 @synthesize images = _images;
 @synthesize area = _area;
 @synthesize tags = _tags;
+@synthesize hoverImage = _hoverImage;
 
 @synthesize classify  = _classify;
 
@@ -113,6 +114,16 @@
 - (NSArray *)classify
 {
     return nil;
+}
+
+- (void)setHoverImage:(TJMaterialImage *)hoverImage
+{
+    [self setObject:hoverImage forKey:@"hoverImage"];
+}
+
+- (TJMaterialImage *)hoverImage
+{
+    return [self objectForKey:@"hoverImage"];
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 
 #import "TJDashboardViewController.h"
+#import <Routable.h>
+#import "TJUserManager.h"
 
 @interface TJDashboardViewController()
 
@@ -19,7 +21,19 @@
 
 - (void)viewDidLoad
 {
+    [[Routable sharedRouter] setNavigationController:self.navigationController];
+}
 
+#pragma mark - Action 
+
+
+- (IBAction)postButtonPress:(UIButton *)sender {
+    if ([TJUser getCurrentUser] == nil) {
+        [[Routable sharedRouter] open:@"login"];
+    }
+    else {
+        [[Routable sharedRouter] open:@"post"];
+    }
 }
 
 @end

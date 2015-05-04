@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <BmobSDK/Bmob.h>
 
-@interface TJMaterialImage : NSObject
+@interface TJMaterialImage : BmobObject
 
 @property (nonatomic, strong) NSNumber *width;
 
