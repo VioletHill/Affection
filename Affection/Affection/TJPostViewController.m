@@ -20,6 +20,9 @@
 @property (nonatomic, strong) TJUser *user;
 
 @property (weak, nonatomic) IBOutlet UIButton *postImageButton;
+@property (weak, nonatomic) IBOutlet UITextView *materialDescriptionTextView;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *areaSegment;
+@property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 
 @property (nonatomic, strong) TJMaterialImage *imageFile;
 
