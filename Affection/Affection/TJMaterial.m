@@ -22,6 +22,8 @@
 @synthesize area = _area;
 @synthesize tags = _tags;
 @synthesize hoverImage = _hoverImage;
+@synthesize hoverImageWidth = _hoverImageWidth;
+@synthesize hoverImageHeight = _hoverImageHeight;
 
 @synthesize classify  = _classify;
 
@@ -116,14 +118,61 @@
     return nil;
 }
 
-- (void)setHoverImage:(TJMaterialImage *)hoverImage
+- (void)setHoverImage:(BmobFile *)hoverImage
 {
     [self setObject:hoverImage forKey:@"hoverImage"];
 }
 
-- (TJMaterialImage *)hoverImage
+- (BmobFile *)hoverImage
 {
     return [self objectForKey:@"hoverImage"];
+}
+
+- (void)setHoverImageWidth:(NSNumber *)hoverImageWidth
+{
+    [self setObject:hoverImageWidth forKey:@"hoverImageWidth"];
+}
+
+- (NSNumber *)hoverImageWidth
+{
+    return [self objectForKey:@"hoverImageWidth"];
+}
+
+- (void)setHoverImageHeight:(NSNumber *)hoverImageHeight
+{
+    [self setObject:hoverImageHeight forKey:@"hoverImageHeight"];
+}
+
+- (NSNumber *)hoverImageHeight
+{
+    return [self objectForKey:@"hoverImageHeight"];
+}
+
++ (TJMaterial *)copyWithBomb:(BmobObject *)object
+{
+    TJMaterial *material = [[TJMaterial alloc] init];
+    material.objectId = object.objectId;
+    material.createdAt = object.createdAt;
+    material.updatedAt = object.updatedAt;
+    material.className = object.className;
+    material.ACL = object.ACL;
+    material.materialDescription = [object objectForKey:@"materialDescription"];
+    material.price = [object objectForKey:@"price"];
+    material.hoverImageWidth = [object objectForKey:@"hoverImageWidth"];
+    material.hoverImageHeight = [object objectForKey:@"hoverImageHeight"];
+    material.hoverImage = [object objectForKey:@"hoverImage"];
+    NSNumber *area = [object objectForKey:@"area"];
+    
+    if ([area isEqualToNumber:@(0)]) {
+        material.area = TJMaterialAreaBenbu;
+    }
+    else {
+        material.area = TJMaterialAreaJiading;
+    }
+    
+    material.poster = [object objectForKey:@"poster"];
+    
+    return material;
 }
 
 @end

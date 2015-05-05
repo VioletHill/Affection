@@ -23,6 +23,9 @@
 		F3C4E5741AF773750011BD3B /* TJBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E5711AF773750011BD3B /* TJBaseTableViewController.m */; };
 		F3C4E5751AF773750011BD3B /* TJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E5731AF773750011BD3B /* TJBaseViewController.m */; };
 		F3C4E57C1AF78FFA0011BD3B /* TJMaterialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E57B1AF78FFA0011BD3B /* TJMaterialManager.m */; };
+		F3E8B30B1AF86B5F009ADDF2 /* TJDashboardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E8B30A1AF86B5F009ADDF2 /* TJDashboardViewCell.m */; };
+		F3E8B30D1AF89F24009ADDF2 /* TJDashboardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E8B30C1AF89F24009ADDF2 /* TJDashboardViewCell.xib */; };
+		F3E8B3101AF8A638009ADDF2 /* TJDashboardViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E8B30F1AF8A638009ADDF2 /* TJDashboardViewLayout.m */; };
 		F3E918911AF4B3D100515F19 /* TJDashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E918901AF4B3D100515F19 /* TJDashboardViewController.m */; };
 		F3E918941AF5F97B00515F19 /* TJLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E918931AF5F97B00515F19 /* TJLoginViewController.m */; };
 		F3E918971AF5F98800515F19 /* TJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E918961AF5F98800515F19 /* TJRegisterViewController.m */; };
@@ -78,6 +81,11 @@
 		F3C4E5731AF773750011BD3B /* TJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJBaseViewController.m; sourceTree = "<group>"; };
 		F3C4E57A1AF78FFA0011BD3B /* TJMaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMaterialManager.h; sourceTree = "<group>"; };
 		F3C4E57B1AF78FFA0011BD3B /* TJMaterialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMaterialManager.m; sourceTree = "<group>"; };
+		F3E8B3091AF86B5F009ADDF2 /* TJDashboardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDashboardViewCell.h; sourceTree = "<group>"; };
+		F3E8B30A1AF86B5F009ADDF2 /* TJDashboardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDashboardViewCell.m; sourceTree = "<group>"; };
+		F3E8B30C1AF89F24009ADDF2 /* TJDashboardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJDashboardViewCell.xib; sourceTree = "<group>"; };
+		F3E8B30E1AF8A638009ADDF2 /* TJDashboardViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDashboardViewLayout.h; sourceTree = "<group>"; };
+		F3E8B30F1AF8A638009ADDF2 /* TJDashboardViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDashboardViewLayout.m; sourceTree = "<group>"; };
 		F3E9188F1AF4B3D100515F19 /* TJDashboardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDashboardViewController.h; sourceTree = "<group>"; };
 		F3E918901AF4B3D100515F19 /* TJDashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDashboardViewController.m; sourceTree = "<group>"; };
 		F3E918921AF5F97B00515F19 /* TJLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJLoginViewController.h; sourceTree = "<group>"; };
@@ -236,6 +244,11 @@
 			isa = PBXGroup;
 			children = (
 				F30953FF1AEF2F4800906658 /* Main.storyboard */,
+				F3E8B3091AF86B5F009ADDF2 /* TJDashboardViewCell.h */,
+				F3E8B30A1AF86B5F009ADDF2 /* TJDashboardViewCell.m */,
+				F3E8B30C1AF89F24009ADDF2 /* TJDashboardViewCell.xib */,
+				F3E8B30E1AF8A638009ADDF2 /* TJDashboardViewLayout.h */,
+				F3E8B30F1AF8A638009ADDF2 /* TJDashboardViewLayout.m */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -359,6 +372,7 @@
 				F30954011AEF2F4800906658 /* Main.storyboard in Resources */,
 				F3C4E56C1AF76FC70011BD3B /* viewController.plist in Resources */,
 				F30954061AEF2F4800906658 /* LaunchScreen.xib in Resources */,
+				F3E8B30D1AF89F24009ADDF2 /* TJDashboardViewCell.xib in Resources */,
 				F30954031AEF2F4800906658 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -423,10 +437,12 @@
 				F30953F81AEF2F4800906658 /* main.m in Sources */,
 				F3E918971AF5F98800515F19 /* TJRegisterViewController.m in Sources */,
 				F3C4E56A1AF76EC00011BD3B /* TJPostViewController.m in Sources */,
+				F3E8B3101AF8A638009ADDF2 /* TJDashboardViewLayout.m in Sources */,
 				F3EC4F4F1AEFC38C0090AF7A /* TJClassifyManager.m in Sources */,
 				F3E918A11AF60BCF00515F19 /* TJUserCenterViewController.m in Sources */,
 				F3E918911AF4B3D100515F19 /* TJDashboardViewController.m in Sources */,
 				F30954211AEF38B900906658 /* TJUser.m in Sources */,
+				F3E8B30B1AF86B5F009ADDF2 /* TJDashboardViewCell.m in Sources */,
 				F30954271AEF3A3B00906658 /* TJClassify.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

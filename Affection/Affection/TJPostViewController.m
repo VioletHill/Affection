@@ -40,14 +40,23 @@
 - (IBAction)postButtonPress:(UIButton *)sender
 {
     TJMaterial *material = [[TJMaterial alloc] init];
-    material.materialDescription = @"testDesc";
-    material.price = @(10.5);
+    material.materialDescription = self.materialDescriptionTextView.text;
+    material.price = @([self.priceTextField.text floatValue]);
     material.tags = @[@"a",@"b"];
-    material.area = TJMaterialAreaBenbu;
+    
+    if (self.areaSegment.selectedSegmentIndex == 0) {
+        material.area = TJMaterialAreaBenbu;
+    }
+    else {
+        material.area = TJMaterialAreaJiading;
+    }
+ 
     material.poster = self.user;
     material.status = TJMaterialPengding;
     
-    material.hoverImage = self.imageFile;
+    material.hoverImage = self.imageFile.image;
+    material.hoverImageWidth = self.imageFile.width;
+    material.hoverImageHeight = self.imageFile.height;
     
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"发布中"];
     [[TJMaterialManager sharedMaterialManager] postMaterial:material complete:^(BOOL success, NSError *error) {
@@ -122,6 +131,7 @@
                 self.imageFile  = [[TJMaterialImage alloc] init];
                 self.imageFile.width = @(image.size.width);
                 self.imageFile.height = @(image.size.height);
+                self.imageFile.image = file;
                 
                 [self.imageFile saveInBackgroundWithResultBlock:^(BOOL success, NSError *error) {
                     [loading hide:YES];
@@ -149,5 +159,11 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - touch
+
+- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
+}
 
 @end

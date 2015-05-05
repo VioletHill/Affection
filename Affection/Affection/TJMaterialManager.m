@@ -7,6 +7,7 @@
 //
 
 #import "TJMaterialManager.h"
+#import <BmobSDK/Bmob.h>
 
 @implementation TJMaterialManager
 
@@ -25,6 +26,23 @@
     [material saveInBackgroundWithResultBlock:^(BOOL success, NSError *error) {
         if (complete) {
             complete(success, error);
+        }
+    }];
+}
+
+- (void)getMaterialComplete:(void (^)(NSArray *, NSError *))complete
+{
+    BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            complete(nil, error);
+        }
+        else {
+            NSMutableArray *result = [NSMutableArray array];
+            for (BmobObject *object in array) {
+                [result addObject:[TJMaterial copyWithBomb:object]];
+            }
+            complete(result, nil);
         }
     }];
 }

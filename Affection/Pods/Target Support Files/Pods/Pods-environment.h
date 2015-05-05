@@ -72,6 +72,12 @@
 #define COCOAPODS_VERSION_MINOR_MagicalRecord_Core 2
 #define COCOAPODS_VERSION_PATCH_MagicalRecord_Core 0
 
+// Routable
+#define COCOAPODS_POD_AVAILABLE_Routable
+#define COCOAPODS_VERSION_MAJOR_Routable 0
+#define COCOAPODS_VERSION_MINOR_Routable 1
+#define COCOAPODS_VERSION_PATCH_Routable 1
+
 // SDWebImage
 #define COCOAPODS_POD_AVAILABLE_SDWebImage
 #define COCOAPODS_VERSION_MAJOR_SDWebImage 3
@@ -89,12 +95,6 @@
 #define COCOAPODS_VERSION_MAJOR_SVPullToRefresh 0
 #define COCOAPODS_VERSION_MINOR_SVPullToRefresh 4
 #define COCOAPODS_VERSION_PATCH_SVPullToRefresh 1
-
-// TMRoutable
-#define COCOAPODS_POD_AVAILABLE_TMRoutable
-#define COCOAPODS_VERSION_MAJOR_TMRoutable 0
-#define COCOAPODS_VERSION_MINOR_TMRoutable 1
-#define COCOAPODS_VERSION_PATCH_TMRoutable 6
 
 // UIActivityIndicator-for-SDWebImage
 #define COCOAPODS_POD_AVAILABLE_UIActivityIndicator_for_SDWebImage

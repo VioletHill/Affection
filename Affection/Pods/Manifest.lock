@@ -20,11 +20,11 @@ PODS:
     - MagicalRecord/Core (= 2.2)
   - MagicalRecord/Core (2.2)
   - MBProgressHUD (0.9.1)
+  - Routable (0.1.1)
   - SDWebImage (3.7.2):
     - SDWebImage/Core (= 3.7.2)
   - SDWebImage/Core (3.7.2)
   - SVPullToRefresh (0.4.1)
-  - TMRoutable (0.1.6)
   - UIActivityIndicator-for-SDWebImage (1.2):
     - SDWebImage (~> 3.7)
 
@@ -34,9 +34,9 @@ DEPENDENCIES:
   - EaseMobSDK (~> 2.1.5)
   - MagicalRecord (~> 2.2)
   - MBProgressHUD (~> 0.8)
+  - Routable (~> 0.1.1)
   - SDWebImage (~> 3.7.2)
   - SVPullToRefresh (~> 0.4.1)
-  - TMRoutable (~> 0.1.6)
   - UIActivityIndicator-for-SDWebImage (~> 1.2)
 
 SPEC CHECKSUMS:
@@ -45,9 +45,9 @@ SPEC CHECKSUMS:
   EaseMobSDK: 7fa8a57a336b01d9cea71de831c5c9a1cb2acf00
   MagicalRecord: f8a56bb87ab6552f20c4bb8681a1958a197ea3cd
   MBProgressHUD: c47f2c166c126cf2ce36498d80f33e754d4e93ad
+  Routable: 42731c7757b9b7ad32dd84d988b3d5428b966dfd
   SDWebImage: 71b7cdc1d1721d6a82ed62889030225f2c249e29
   SVPullToRefresh: ba2e718695a43253d8bea6852d2960097dc15d8c
-  TMRoutable: 8482d7e7afbec946de0ce81eec9b95e9e2ce0d01
   UIActivityIndicator-for-SDWebImage: 7bf7ebbf0ed1747dedc0d6e949c4603a6d0f9e0c
 
 COCOAPODS: 0.35.0

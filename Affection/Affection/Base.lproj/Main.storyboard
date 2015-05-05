@@ -14,19 +14,10 @@
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qah-tf-Onu">
-                                <rect key="frame" x="277" y="550" width="46" height="30"/>
-                                <state key="normal" title="Button">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="postButtonPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="rcH-8I-SEw"/>
-                                </connections>
-                            </button>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r41-U1-6Y6">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r41-U1-6Y6">
                                 <rect key="frame" x="0.0" y="64" width="600" height="536"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Ui5-cy-Y8h">
@@ -36,7 +27,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="RuE-uU-BZz">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TJDashboardViewCell" id="RuE-uU-BZz" customClass="TJDashboardViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -101,8 +92,18 @@
                                             <constraint firstItem="c5U-Xz-Izw" firstAttribute="top" secondItem="N2p-IU-4wq" secondAttribute="bottom" constant="10" id="lfl-IV-E8a"/>
                                             <constraint firstAttribute="trailing" secondItem="YKR-os-Qy8" secondAttribute="trailing" constant="20" id="o0o-Lj-sNq"/>
                                         </constraints>
+                                        <connections>
+                                            <outlet property="createAtLabel" destination="YKR-os-Qy8" id="MNx-1u-r5L"/>
+                                            <outlet property="descriptionLabel" destination="c5U-Xz-Izw" id="dfV-6c-2hO"/>
+                                            <outlet property="hoverImage" destination="N2p-IU-4wq" id="hdR-fP-9Ql"/>
+                                            <outlet property="priceLabel" destination="Wzf-no-I4d" id="75Z-jR-hHW"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="grI-CO-aNG"/>
+                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="qPi-yt-or8"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -110,9 +111,7 @@
                             <constraint firstItem="r41-U1-6Y6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="39y-vj-0jK"/>
                             <constraint firstAttribute="trailing" secondItem="r41-U1-6Y6" secondAttribute="trailing" id="AK6-p7-3OJ"/>
                             <constraint firstItem="r41-U1-6Y6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="JDH-UZ-jSA"/>
-                            <constraint firstAttribute="centerX" secondItem="Qah-tf-Onu" secondAttribute="centerX" id="dLb-BB-3n1"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="r41-U1-6Y6" secondAttribute="bottom" id="dV1-UY-wRh"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Qah-tf-Onu" secondAttribute="bottom" constant="20" id="iKn-fz-dxK"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6iG-Kl-m65">
@@ -125,20 +124,21 @@
                                 <segment title="嘉定"/>
                             </segments>
                         </segmentedControl>
-                        <barButtonItem key="rightBarButtonItem" title="消息中心" id="wpX-zo-gB6">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="wpX-zo-gB6">
                             <connections>
-                                <segue destination="uRz-VR-Gng" kind="push" id="8ZT-Zq-6ZC"/>
+                                <action selector="addButtonPress:" destination="vXZ-lx-hvc" id="4wt-Nd-eKM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="areaSegment" destination="bwO-Jv-scZ" id="oMv-Nk-1F4"/>
+                        <outlet property="collectionView" destination="r41-U1-6Y6" id="W3C-pw-ZMC"/>
                         <segue destination="Ca8-6b-KO3" kind="push" id="kPa-R8-PDK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="387"/>
+            <point key="canvasLocation" x="924" y="366"/>
         </scene>
         <!--详情-->
         <scene sceneID="Aq9-2r-bUO">
@@ -574,10 +574,10 @@
                         <viewControllerLayoutGuide type="bottom" id="lVK-y2-hzL"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="ggk-ni-ZcY">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUd-cV-QTd">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUd-cV-QTd">
                                 <rect key="frame" x="250" y="94" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -591,7 +591,7 @@
                                     <action selector="selectPhoto:" destination="Ca8-6b-KO3" eventType="touchUpInside" id="Y1m-95-E7L"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JJY-dn-Fvd">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JJY-dn-Fvd">
                                 <rect key="frame" x="0.0" y="214" width="600" height="80"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="描述" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jeU-hY-98a">
@@ -619,7 +619,7 @@
                                     <constraint firstAttribute="centerY" secondItem="jeU-hY-98a" secondAttribute="centerY" id="YJj-bp-GZ1"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-U2-Xg3">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-U2-Xg3">
                                 <rect key="frame" x="0.0" y="294" width="600" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地区" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McT-PX-zb8">
@@ -645,7 +645,7 @@
                                     <constraint firstItem="eUk-gI-oce" firstAttribute="leading" secondItem="McT-PX-zb8" secondAttribute="trailing" constant="20" id="rBM-X6-pD3"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oum-uJ-ui1">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oum-uJ-ui1">
                                 <rect key="frame" x="0.0" y="338" width="600" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhH-aA-K0D">
@@ -671,7 +671,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Tde-oy-CQ0" secondAttribute="trailing" constant="20" id="p3J-rm-sFM"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSV-1b-KMB">
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bSV-1b-KMB">
                                 <rect key="frame" x="0.0" y="382" width="600" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分类" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktU-5h-RlD">
@@ -705,7 +705,7 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yj-VM-MqS">
-                                <rect key="frame" x="10" y="536" width="580" height="44"/>
+                                <rect key="frame" x="10" y="472" width="580" height="44"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="q4M-IH-ftG"/>
@@ -770,7 +770,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="fcz-kr-LxM" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4DF-Wu-gjB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4DF-Wu-gjB">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

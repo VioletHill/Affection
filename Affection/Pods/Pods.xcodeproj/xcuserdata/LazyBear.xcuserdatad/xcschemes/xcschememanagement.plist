@@ -29,17 +29,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-Routable.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-SDWebImage.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
 		</dict>
 		<key>Pods-SVPullToRefresh.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>Pods-TMRoutable.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -57,52 +57,52 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>035C23B2BD5537DF35142251</key>
+		<key>234759A503C9FE800518CBD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1F73F8C269EDF272DC4E0A0A</key>
+		<key>253D87521A6635BBC4166CF2</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>3310DDCBC357E03C41C7076D</key>
+		<key>49207A8A90C1C77E7D78801B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>377FA83999B185484E4DE7E6</key>
+		<key>5EED03577FAFA2CB9A79B6EA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>84E10D5154BEF03FA69934C0</key>
+		<key>603F74902F8D34EBB4B9D8F1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>86C127FB13EA88BE720D7F02</key>
+		<key>75EECFCB9683360681342962</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>93052E878ABC983892740BC4</key>
+		<key>8DD0D4E820654E0DED35703D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>99875A0E66E65EC7B07756EE</key>
+		<key>A8231C0DCF9BB9D09F82679F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B5689FF447C63E39443A035B</key>
+		<key>B0E81242B556F47639182137</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E5DA66F925A0953B3ACFCB2B</key>
+		<key>BEE2A13CAB9DDB5221A9387B</key>
 		<dict>
 			<key>primary</key>
 			<true/>

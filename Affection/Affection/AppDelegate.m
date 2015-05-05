@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import <BmobSDK/Bmob.h>
-#import <TMRoutable/Routable.h>
+#import <Routable.h>
 
 @interface AppDelegate ()
 

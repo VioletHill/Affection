@@ -51,8 +51,10 @@ typedef NS_ENUM(NSInteger, TJMaterialStatus) {      //二手物品状态 是否�
 @property (nonatomic, strong) NSNumber *hoverImageWidth;        //首页显示的图片的长和宽 这样可以按照比例放大缩小
 @property (nonatomic, strong) NSNumber *hoverImageHeight;       //
 
-@property (nonatomic, strong) TJMaterialImage *hoverImage;      // 首页显示的图片 其实就是 images[0]
+@property (nonatomic, strong) BmobFile *hoverImage;      // 首页显示的图片 其实就是 images[0]
 
 @property (nonatomic, assign) TJMaterialStatus status;          //d
+
++ (TJMaterial *)copyWithBomb:(BmobObject *)object;
 
 @end

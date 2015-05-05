@@ -15,4 +15,6 @@
 
 - (void)postMaterial:(TJMaterial *)material complete:(void(^)(BOOL success, NSError *error))complete;
 
+- (void)getMaterialComplete:(void (^)(NSArray *, NSError *))complete;
+
 @end
