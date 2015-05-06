@@ -12,6 +12,14 @@
 
 @synthesize classifyName = _classifyName;
 
+- (instancetype)init
+{
+    if (self = [super initWithClassName:@"classify"]) {
+        
+    }
+    return self;
+}
+
 - (NSString *)classifyName
 {
     return [self objectForKey:@"classifyName"];

@@ -17,4 +17,6 @@
 
 - (void)getMaterialComplete:(void (^)(NSArray *, NSError *))complete;
 
+- (void)getMaterialWithType:(TJMaterialArea)area limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete;
+
 @end

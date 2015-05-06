@@ -48,4 +48,25 @@
     }];
 }
 
+- (void)getMaterialWithType:(TJMaterialArea)area limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete
+{
+    BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+    [query orderByDescending:@"createdAt"];
+    query.skip = skip;
+    query.limit = limit;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            complete(nil, error);
+        }
+        else {
+            NSMutableArray *result = [NSMutableArray array];
+            for (BmobObject *object in array) {
+                [result addObject:[TJMaterial copyWithBomb:object]];
+            }
+            complete(result, nil);
+        }
+    }];
+}
+
 @end

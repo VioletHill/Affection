@@ -39,4 +39,9 @@
     
 }
 
+- (void)queryForClassify:(NSString *)classifyName complete:(void (^)(TJClassify *, NSError *) )complete
+{
+    
+}
+
 @end

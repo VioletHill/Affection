@@ -15,7 +15,7 @@
 #import <UIAlertView+BlocksKit.h>
 #import "TJMaterialImage.h"
 
-@interface TJPostViewController()<UINavigationControllerDelegate, UIImagePickerControllerDelegate>
+@interface TJPostViewController()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
 @property (nonatomic, strong) TJUser *user;
 
@@ -25,6 +25,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 
 @property (nonatomic, strong) TJMaterialImage *imageFile;
+@property (weak, nonatomic) IBOutlet UIButton *classifyButton;
+
+@property (weak, nonatomic) IBOutlet UIView *coverView;
+@property (weak, nonatomic) IBOutlet UIPickerView *pickerView;
+
+@property (nonatomic, strong) NSArray *classify;
 
 @end
 
@@ -33,6 +39,17 @@
 - (void)viewDidLoad
 {
     self.user = [TJUser getCurrentUser];
+}
+
+#pragma mark - Getter & Setter
+
+- (NSArray *)classify
+{
+    if (_classify == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Classify" ofType:@"plist"];
+        _classify = [NSArray arrayWithContentsOfFile:path];
+    }
+    return _classify;
 }
 
 #pragma mark - Post
@@ -68,6 +85,7 @@
     
 
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"发布中"];
+    
     [[TJMaterialManager sharedMaterialManager] postMaterial:material complete:^(BOOL success, NSError *error) {
         [loading hide:YES];
         
@@ -166,6 +184,40 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (IBAction)showPicker:(UIButton *)sender
+{
+    self.coverView.hidden = NO;
+    self.pickerView.hidden = NO;
+}
+
+- (IBAction)dismissPicker:(id)sender
+{
+    NSInteger select = [self.pickerView selectedRowInComponent:0];
+    [self.classifyButton setTitle:self.classify[select] forState:UIControlStateNormal];
+    self.coverView.hidden = YES;
+    self.pickerView.hidden = YES;
+}
+
+
+#pragma mark - Picker View Delegate & DataSource
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.classify.count;
+}
+
+- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    NSAttributedString *attString = [[NSAttributedString alloc] initWithString:self.classify[row] attributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]}];
+    
+    return attString;
 }
 
 #pragma mark - touch

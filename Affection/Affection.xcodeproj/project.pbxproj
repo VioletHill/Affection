@@ -18,6 +18,7 @@
 		F30954211AEF38B900906658 /* TJUser.m in Sources */ = {isa = PBXBuildFile; fileRef = F30954201AEF38B900906658 /* TJUser.m */; };
 		F30954271AEF3A3B00906658 /* TJClassify.m in Sources */ = {isa = PBXBuildFile; fileRef = F30954261AEF3A3B00906658 /* TJClassify.m */; };
 		F309542A1AEF3BC000906658 /* TJMaterialImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F30954291AEF3BC000906658 /* TJMaterialImage.m */; };
+		F3C0E1411AFA60490058B23C /* Classify.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C0E1401AFA60490058B23C /* Classify.plist */; };
 		F3C4E56A1AF76EC00011BD3B /* TJPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E5691AF76EC00011BD3B /* TJPostViewController.m */; };
 		F3C4E56C1AF76FC70011BD3B /* viewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C4E56B1AF76FC70011BD3B /* viewController.plist */; };
 		F3C4E5741AF773750011BD3B /* TJBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E5711AF773750011BD3B /* TJBaseTableViewController.m */; };
@@ -72,6 +73,7 @@
 		F30954261AEF3A3B00906658 /* TJClassify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJClassify.m; sourceTree = "<group>"; };
 		F30954281AEF3BC000906658 /* TJMaterialImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMaterialImage.h; sourceTree = "<group>"; };
 		F30954291AEF3BC000906658 /* TJMaterialImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMaterialImage.m; sourceTree = "<group>"; };
+		F3C0E1401AFA60490058B23C /* Classify.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Classify.plist; sourceTree = "<group>"; };
 		F3C4E5681AF76EC00011BD3B /* TJPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPostViewController.h; sourceTree = "<group>"; };
 		F3C4E5691AF76EC00011BD3B /* TJPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPostViewController.m; sourceTree = "<group>"; };
 		F3C4E56B1AF76FC70011BD3B /* viewController.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = viewController.plist; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			children = (
 				F30953F61AEF2F4800906658 /* Info.plist */,
 				F30953F71AEF2F4800906658 /* main.m */,
+				F3C0E1401AFA60490058B23C /* Classify.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -373,6 +376,7 @@
 				F3C4E56C1AF76FC70011BD3B /* viewController.plist in Resources */,
 				F30954061AEF2F4800906658 /* LaunchScreen.xib in Resources */,
 				F3E8B30D1AF89F24009ADDF2 /* TJDashboardViewCell.xib in Resources */,
+				F3C0E1411AFA60490058B23C /* Classify.plist in Resources */,
 				F30954031AEF2F4800906658 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
