@@ -33,6 +33,7 @@
 - (void)getMaterialComplete:(void (^)(NSArray *, NSError *))complete
 {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+    [query orderByDescending:@"createdAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
             complete(nil, error);

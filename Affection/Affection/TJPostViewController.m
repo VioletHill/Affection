@@ -37,6 +37,7 @@
 
 #pragma mark - Post
 
+
 - (IBAction)postButtonPress:(UIButton *)sender
 {
     TJMaterial *material = [[TJMaterial alloc] init];
@@ -54,10 +55,18 @@
     material.poster = self.user;
     material.status = TJMaterialPengding;
     
-    material.hoverImage = self.imageFile.image;
-    material.hoverImageWidth = self.imageFile.width;
-    material.hoverImageHeight = self.imageFile.height;
+    if (self.imageFile) {
+        material.hoverImage = self.imageFile.image;
+        material.hoverImageWidth = self.imageFile.width;
+        material.hoverImageHeight = self.imageFile.height;
+    }
+    else {
+        material.hoverImageWidth = @(0);
+        material.hoverImageHeight = @(0);
+    }
     
+    
+
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"发布中"];
     [[TJMaterialManager sharedMaterialManager] postMaterial:material complete:^(BOOL success, NSError *error) {
         [loading hide:YES];
@@ -94,7 +103,7 @@
         
         picker.sourceType = sourceType;
         picker.delegate = self;
-        picker.allowsEditing = YES;
+        picker.allowsEditing = NO;
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self presentViewController:picker animated:YES completion:nil];
@@ -121,7 +130,7 @@
         
         MBProgressHUD *loading = [MBProgressHUD determinateProgressHUDInView:nil withText:@"图片上传中"];
         
-        UIImage *image = info[UIImagePickerControllerEditedImage];
+        UIImage *image = info[UIImagePickerControllerOriginalImage];
         NSData *mediaData = UIImagePNGRepresentation(image);
         
         BmobFile *file = [[BmobFile alloc] initWithFileName:[self.user.mobileNumber stringByAppendingString:@"materialHover.png"] withFileData:mediaData];

@@ -11,25 +11,23 @@
 #import "TJUserManager.h"
 #import "TJDashboardViewCell.h"
 #import "MBProgressHUD+AppProgressView.h"
+#import "TJDashboardViewLayout.h"
 #import <SVPullToRefresh.h>
 
-@interface TJDashboardViewController()<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>
+@interface TJDashboardViewController()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *areaSegment;
 @property (weak, nonatomic) IBOutlet UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+@property (weak, nonatomic) IBOutlet TJDashboardViewLayout *collectionViewLayout;
 
 @property (nonatomic, strong) NSMutableArray *data;
-
-@property (nonatomic, strong) NSMutableDictionary *positionDictionary;
-
-@property (nonatomic, assign) CGFloat column0;
-@property (nonatomic, assign) CGFloat column1;
 
 @end
 
 @implementation TJDashboardViewController
 
+@synthesize data = _data;
 
 - (void)viewDidLoad
 {
@@ -63,12 +61,20 @@
     return _data;
 }
 
-- (NSMutableDictionary *)positionDictionary
+- (void)setData:(NSMutableArray *)data
 {
-    if (_positionDictionary == nil) {
-        _positionDictionary = [NSMutableDictionary dictionary];
+    if (_data != data) {
+        _data = data;
+        self.collectionViewLayout.data = data;
     }
-    return _positionDictionary;
+}
+
+- (void)setCollectionView:(UICollectionView *)collectionView
+{
+    if (_collectionView != collectionView) {
+        _collectionView = collectionView;
+        [_collectionView registerNib:[UINib nibWithNibName:@"TJDashboardViewCell" bundle:nil] forCellWithReuseIdentifier:@"TJDashboardViewCell"];
+    }
 }
 
 #pragma mark - refreshData
@@ -82,9 +88,6 @@
         }
         else {
             self.data = [array mutableCopy];
-            for (int i = 0; i < 10; i++) {
-                [self.data addObjectsFromArray:array];
-            }
             [self.collectionView reloadData];
         }
     }];
@@ -112,7 +115,7 @@
     }
 }
 
-#pragma mark - UICollectionView Delegate & Datasource
+#pragma mark - UICollectionView Datasource
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
@@ -126,58 +129,12 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    TJDashboardViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TJDashboardViewCell class]) forIndexPath:indexPath];
+    TJDashboardViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TJDashboardViewCell class]) forIndexPath:indexPath];
     [cell setCellWithMaterial:self.data[indexPath.row]];
     
-    if (self.positionDictionary[indexPath] == nil) {
-        self.positionDictionary[indexPath] = [self getIndexPathPosition:indexPath];
-    }
-    
-    NSValue *value = self.positionDictionary[indexPath];
-    CGSize size = [self getIndexPathSize:indexPath];
-    CGPoint position = [value CGPointValue];
-    
-    cell.frame = CGRectMake(position.x, position.y, size.width, size.height);
     return cell;
 }
 
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
-{
-    return [self getIndexPathSize:indexPath];
-}
 
-- (NSValue *)getIndexPathPosition:(NSIndexPath *)indexPath
-{
-    CGSize size = [self getIndexPathSize:indexPath];
-    if (self.column0 <= self.column1) {
-        CGFloat positionY = self.column0;
-        self.column0 += size.height + 20;
-        CGPoint point = CGPointMake(5, positionY);
-        return [NSValue valueWithCGPoint:point];
-    }
-    else {
-        CGFloat positionY = self.column1;
-        self.column1 += size.height + 20;
-        CGPoint point = CGPointMake(size.width + 15, positionY);
-        return [NSValue valueWithCGPoint:point];
-    }
-}
-
-- (CGSize)getIndexPathSize:(NSIndexPath *)indexPath
-{
-    TJMaterial *material = self.data[indexPath.row];
-    
-    CGFloat width = [UIScreen mainScreen].bounds.size.width / 2 - 10;
-    CGSize size = CGSizeMake(width, material.hoverImageWidth.floatValue / material.hoverImageHeight.floatValue * width + 50);
-    return size;
-
-}
-
-
-- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
-{
-    UIEdgeInsets edgeInsets = {-100,5,5,5};
-    return edgeInsets;
-}
 
 @end

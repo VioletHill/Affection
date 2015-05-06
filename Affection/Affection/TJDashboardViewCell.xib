@@ -7,23 +7,24 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="TJDashboardViewCell" id="EPt-cQ-PVk" customClass="TJDashboardViewCell">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="EPt-cQ-PVk" customClass="TJDashboardViewCell">
             <rect key="frame" x="0.0" y="0.0" width="263" height="320"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="263" height="320"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fyB-yl-9wg">
-                        <rect key="frame" x="0.0" y="0.0" width="263" height="241"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" placeholderIntrinsicWidth="263" placeholderIntrinsicHeight="241" translatesAutoresizingMaskIntoConstraints="NO" id="fyB-yl-9wg">
+                        <rect key="frame" x="0.0" y="0.0" width="263" height="244"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Zo-re-KUI">
-                        <rect key="frame" x="20" y="251" width="223" height="21"/>
+                        <rect key="frame" x="20" y="254" width="223" height="20"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="Chr-1c-tqB"/>
+                            <constraint firstAttribute="height" constant="20" id="WR2-3x-Gkm"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -32,19 +33,25 @@
                         </variation>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R1o-uG-YjN">
-                        <rect key="frame" x="20" y="277" width="233" height="21"/>
+                        <rect key="frame" x="20" y="279" width="233" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="bCC-tM-sGq"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1T2-Ga-OrT">
-                        <rect key="frame" x="20" y="299" width="223" height="21"/>
+                        <rect key="frame" x="20" y="300" width="223" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="Mhv-w2-w0m"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jPf-dl-jYK">
-                        <rect key="frame" x="0.0" y="298" width="263" height="1"/>
+                        <rect key="frame" x="0.0" y="299" width="263" height="1"/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="1" id="Wzj-Iu-48f"/>

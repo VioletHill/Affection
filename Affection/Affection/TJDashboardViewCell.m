@@ -23,7 +23,13 @@
 
 - (void)setCellWithMaterial:(TJMaterial *)material
 {
-    [self.hoverImage sd_setImageWithURL:[NSURL URLWithString:material.hoverImage.url]];
+    if (material.hoverImage) {
+        [self.hoverImage setImageWithURL:[NSURL URLWithString:material.hoverImage.url] placeholderImage:[UIImage imageNamed:@"imagePlaceholder"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    }
+    else {
+        [self.hoverImage setImage:[UIImage imageNamed:@"imagePlaceholder"]];
+    }
+    
     self.descriptionLabel.text = material.materialDescription;
     self.priceLabel.text = [NSString stringWithFormat:@"%@", material.price];
 }

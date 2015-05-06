@@ -10,4 +10,6 @@
 
 @interface TJDashboardViewLayout : UICollectionViewLayout
 
+@property (nonatomic, weak) NSMutableArray *data;
+
 @end
