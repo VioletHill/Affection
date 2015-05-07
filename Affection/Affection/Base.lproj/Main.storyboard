@@ -21,6 +21,11 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="cll-rf-IKG">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="aFq-ly-R2A">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TJClassifyTableViewCell" id="bTl-3R-FNW" customClass="TJClassifyTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -49,6 +54,10 @@
                                                 <constraint firstItem="NIY-Vt-L6Q" firstAttribute="leading" secondItem="9nw-va-gDh" secondAttribute="leading" constant="15" id="qlE-vC-nHh"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="classifyLabel" destination="u9I-uZ-wPB" id="gKX-ae-gww"/>
+                                            <outlet property="titleImageView" destination="NIY-Vt-L6Q" id="Exo-d0-JLS"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -72,6 +81,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="cll-rf-IKG" id="A25-Rt-51Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Nx-lv-Nvi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -112,7 +124,7 @@
                         <nil key="title"/>
                         <barButtonItem key="leftBarButtonItem" title="分类" id="qiN-eT-JIP">
                             <connections>
-                                <segue destination="Ur1-ur-0em" kind="presentation" id="Ula-aN-50s"/>
+                                <segue destination="Ur1-ur-0em" kind="presentation" identifier="ClassifySelect" id="Ula-aN-50s"/>
                             </connections>
                         </barButtonItem>
                         <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="bwO-Jv-scZ">
@@ -134,6 +146,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="areaSegment" destination="bwO-Jv-scZ" id="oMv-Nk-1F4"/>
+                        <outlet property="classifyButton" destination="qiN-eT-JIP" id="q50-Xt-Otn"/>
                         <outlet property="collectionView" destination="r41-U1-6Y6" id="W3C-pw-ZMC"/>
                         <outlet property="collectionViewLayout" destination="mpu-Q4-qTu" id="CwC-oa-vES"/>
                         <segue destination="Ca8-6b-KO3" kind="push" id="kPa-R8-PDK"/>

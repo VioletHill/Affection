@@ -42,6 +42,30 @@
     return self.localClassify;
 }
 
+- (void)getAllClassifies:(void (^)(NSArray *, NSError *))complete
+{
+    BmobQuery *query = [BmobQuery queryWithClassName:@"classify"];
+    query.limit = 1000;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            complete(nil, error);
+        }
+        else {
+            NSMutableArray *result = [NSMutableArray array];
+            for (BmobObject *object in array) {
+                [result addObject:[TJClassify copyWithBmobObject:object]];
+            }
+            
+            TJClassify *allClassify = [[TJClassify alloc] init];
+            allClassify.classifyName = @"全部";
+            [result insertObject:allClassify atIndex:0];
+            
+            complete(result, nil);
+        }
+    }];
+}
+
 - (void)queryForClassify:(NSString *)classifyName complete:(void (^)(TJClassify *, NSError *) )complete
 {
     BmobQuery *query = [BmobQuery queryWithClassName:@"classify"];

@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+@class TJClassify;
+
 @interface TJClassifyTableViewCell : UITableViewCell
+
+- (void)setCellWithClassify:(TJClassify *)classify;
 
 @end

@@ -17,6 +17,8 @@
 
 - (NSArray *)getLocalClassify;
 
+- (void)getAllClassifies:(void (^)(NSArray *, NSError *))complete;
+
 - (void)queryForClassify:(NSString *)classifyName complete:(void (^)(TJClassify *, NSError *) )complete;
 
 @end

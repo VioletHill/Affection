@@ -13,6 +13,7 @@
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJDashboardViewLayout.h"
 #import "TJAppConst.h"
+#import "TJClassifyViewController.h"
 #import <SVPullToRefresh.h>
 
 @interface TJDashboardViewController()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -30,6 +31,7 @@
 
 @property (nonatomic, strong) NSMutableArray *data;
 
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *classifyButton;
 @end
 
 @implementation TJDashboardViewController
@@ -83,6 +85,14 @@
     if (_collectionView != collectionView) {
         _collectionView = collectionView;
         [_collectionView registerNib:[UINib nibWithNibName:@"TJDashboardViewCell" bundle:nil] forCellWithReuseIdentifier:@"TJDashboardViewCell"];
+    }
+}
+
+- (void)setClassifyName:(NSString *)classifyName
+{
+    if (_classifyName != classifyName) {
+        _classifyName = classifyName;
+        [self.classifyButton setTitle:classifyName];
     }
 }
 
@@ -199,6 +209,17 @@
 
     [self.collectionView scrollRectToVisible:CGRectMake(0, 0, 0, 0) animated:YES];
     [self.collectionView triggerPullToRefresh];
+}
+
+#pragma mark - Seg
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"ClassifySelect"]) {
+        UINavigationController *nav = segue.destinationViewController;
+        TJClassifyViewController *classifyViewController = [nav.childViewControllers firstObject];
+        classifyViewController.controller = self;
+    }
 }
 
 @end

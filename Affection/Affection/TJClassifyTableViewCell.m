@@ -7,17 +7,21 @@
 //
 
 #import "TJClassifyTableViewCell.h"
+#import "TJClassify.h"
+
+@interface TJClassifyTableViewCell()
+
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+
+@property (weak, nonatomic) IBOutlet UILabel *classifyLabel;
+
+@end
 
 @implementation TJClassifyTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
-}
-
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+- (void)setCellWithClassify:(TJClassify *)classify
+{
+    self.classifyLabel.text = classify.classifyName;
 }
 
 @end

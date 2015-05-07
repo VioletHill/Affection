@@ -9,10 +9,13 @@
 #import "TJClassifyViewController.h"
 #import "TJClassifyManager.h"
 #import "TJClassifyTableViewCell.h"
+#import "MBProgressHUD+AppProgressView.h"
 
 @interface TJClassifyViewController ()<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, strong) NSArray *data;
+
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
 
@@ -21,6 +24,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"加载中.."];
+    [[TJClassifyManager sharedClassifyManager] getAllClassifies:^(NSArray *array, NSError *error) {
+        [loading hide:YES];
+        if (error) {
+            [MBProgressHUD showErrorProgressInView:nil withText:@"加载失败"];
+        }
+        else {
+            self.data = array;
+            [self.tableView reloadData];
+        }
+    }];
+    
     // Do any additional setup after loading the view.
 }
 
@@ -35,7 +52,7 @@
 - (NSArray *)data
 {
     if (_data == nil) {
-        _data = [[TJClassifyManager sharedClassifyManager] getLocalClassify];
+        _data = [NSArray array];
     }
     return _data;
 }
@@ -62,7 +79,7 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     TJClassifyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TJClassifyTableViewCell class])];
-    
+    [cell setCellWithClassify:self.data[indexPath.row]];
     return cell;
 }
 
@@ -76,8 +93,10 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    TJClassify *classify = self.data[indexPath.row];
+    self.controller.classifyName = classify.classifyName;
     
-    self.controller.classifyName = self.data[indexPath.row];
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end
