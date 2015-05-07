@@ -20,6 +20,7 @@
 		F309542A1AEF3BC000906658 /* TJMaterialImage.m in Sources */ = {isa = PBXBuildFile; fileRef = F30954291AEF3BC000906658 /* TJMaterialImage.m */; };
 		F34C49E21AFB289700BC6170 /* TJClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C49E11AFB289700BC6170 /* TJClassifyViewController.m */; };
 		F34C49E51AFB32BC00BC6170 /* TJClassifyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C49E41AFB32BC00BC6170 /* TJClassifyTableViewCell.m */; };
+		F34C49F01AFB5EFD00BC6170 /* TJMaterialDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C49EF1AFB5EFD00BC6170 /* TJMaterialDetailViewController.m */; };
 		F3C0E1411AFA60490058B23C /* Classify.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C0E1401AFA60490058B23C /* Classify.plist */; };
 		F3C4E56A1AF76EC00011BD3B /* TJPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E5691AF76EC00011BD3B /* TJPostViewController.m */; };
 		F3C4E56C1AF76FC70011BD3B /* viewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C4E56B1AF76FC70011BD3B /* viewController.plist */; };
@@ -80,6 +81,8 @@
 		F34C49E31AFB32BC00BC6170 /* TJClassifyTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJClassifyTableViewCell.h; sourceTree = "<group>"; };
 		F34C49E41AFB32BC00BC6170 /* TJClassifyTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJClassifyTableViewCell.m; sourceTree = "<group>"; };
 		F34C49EA1AFB43E200BC6170 /* TJAppConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAppConst.h; sourceTree = "<group>"; };
+		F34C49EE1AFB5EFD00BC6170 /* TJMaterialDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMaterialDetailViewController.h; sourceTree = "<group>"; };
+		F34C49EF1AFB5EFD00BC6170 /* TJMaterialDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMaterialDetailViewController.m; sourceTree = "<group>"; };
 		F3C0E1401AFA60490058B23C /* Classify.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Classify.plist; sourceTree = "<group>"; };
 		F3C4E5681AF76EC00011BD3B /* TJPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPostViewController.h; sourceTree = "<group>"; };
 		F3C4E5691AF76EC00011BD3B /* TJPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPostViewController.m; sourceTree = "<group>"; };
@@ -249,6 +252,8 @@
 				F3C4E5691AF76EC00011BD3B /* TJPostViewController.m */,
 				F34C49E01AFB289700BC6170 /* TJClassifyViewController.h */,
 				F34C49E11AFB289700BC6170 /* TJClassifyViewController.m */,
+				F34C49EE1AFB5EFD00BC6170 /* TJMaterialDetailViewController.h */,
+				F34C49EF1AFB5EFD00BC6170 /* TJMaterialDetailViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -465,6 +470,7 @@
 				F34C49E21AFB289700BC6170 /* TJClassifyViewController.m in Sources */,
 				F3E8B3101AF8A638009ADDF2 /* TJDashboardViewLayout.m in Sources */,
 				F3EC4F4F1AEFC38C0090AF7A /* TJClassifyManager.m in Sources */,
+				F34C49F01AFB5EFD00BC6170 /* TJMaterialDetailViewController.m in Sources */,
 				F3E918A11AF60BCF00515F19 /* TJUserCenterViewController.m in Sources */,
 				F3E918911AF4B3D100515F19 /* TJDashboardViewController.m in Sources */,
 				F30954211AEF38B900906658 /* TJUser.m in Sources */,

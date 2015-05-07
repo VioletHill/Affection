@@ -14,6 +14,7 @@
 #import "TJDashboardViewLayout.h"
 #import "TJAppConst.h"
 #import "TJClassifyViewController.h"
+#import "TJMaterialDetailViewController.h"
 #import <SVPullToRefresh.h>
 
 @interface TJDashboardViewController()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -55,10 +56,7 @@
     [self.collectionView addPullToRefreshWithActionHandler:^() {
         [weakSelf refreshData];
     }];
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
+    
     [self.collectionView triggerPullToRefresh];
 }
 
@@ -195,6 +193,17 @@
     return cell;
 }
 
+#pragma mark - UICollectionView Delegate
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    TJMaterialDetailViewController *detailViewController = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([TJMaterialDetailViewController class])];
+    detailViewController.material = self.data[indexPath.row];
+    [self.navigationController pushViewController:detailViewController animated:YES];
+}
+
 #pragma mark - Segment
 
 - (IBAction)areaChange:(UISegmentedControl *)sender
@@ -207,7 +216,7 @@
     }
     
 
-    [self.collectionView scrollRectToVisible:CGRectMake(0, 0, 0, 0) animated:YES];
+    [self.collectionView scrollRectToVisible:CGRectZero animated:YES];
     [self.collectionView triggerPullToRefresh];
 }
 
