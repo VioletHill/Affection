@@ -12,6 +12,7 @@
 #import "TJDashboardViewCell.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJMaterialManager.h"
+#import "TJUser.h"
 
 @interface TJMyPublishViewController()
 
@@ -30,7 +31,7 @@
 {
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"加载中.."];
     
-    [[TJMaterialManager sharedMaterialManager] getMaterialComplete:^(NSArray *array, NSError *error) {
+    [[TJMaterialManager sharedMaterialManager]  getMaterialWithUser:self.user complete:^(NSArray *array, NSError *error) {
         [loading hide:YES];
         if (error) {
             [MBProgressHUD showErrorProgressInView:nil withText:@"加载失败"];
@@ -43,6 +44,14 @@
 }
 
 #pragma mark - Getter & Setter
+
+- (TJUser *)user
+{
+    if (_user == nil) {
+        _user = [TJUser getCurrentUser];
+    }
+    return _user;
+}
 
 - (NSMutableArray *)data
 {

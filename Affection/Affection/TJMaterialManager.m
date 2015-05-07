@@ -35,6 +35,7 @@
 {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
     [query orderByDescending:@"createdAt"];
+    query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
             complete(nil, error);
@@ -50,9 +51,25 @@
 }
 
 - (void)getMaterialWithUser:(TJUser *)user complete:(void (^)(NSArray *, NSError *))complete
-{
-    //to do
-    [self getMaterialComplete:complete];
+{    
+    BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+    [query orderByDescending:@"createdAt"];
+    [query whereKey:@"poster" equalTo:user];
+    query.limit = 1000;
+    
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (error) {
+            complete(nil, error);
+        }
+        else {
+            NSMutableArray *result = [NSMutableArray array];
+            for (BmobObject *object in array) {
+                [result addObject:[TJMaterial copyWithBomb:object]];
+            }
+            complete(result, nil);
+        }
+
+    }];
 }
 
 - (void)getMaterialWithType:(TJMaterialArea)area limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete

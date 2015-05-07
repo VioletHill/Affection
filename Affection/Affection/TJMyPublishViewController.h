@@ -8,6 +8,10 @@
 
 #import "TJBaseViewController.h"
 
+@class TJUser;
+
 @interface TJMyPublishViewController : TJBaseViewController
+
+@property (nonatomic, strong) TJUser *user;
 
 @end

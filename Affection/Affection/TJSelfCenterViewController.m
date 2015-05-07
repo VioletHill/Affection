@@ -8,6 +8,8 @@
 
 #import "TJSelfCenterViewController.h"
 #import <Routable.h>
+#import "TJMyPublishViewController.h"
+#import "TJUser.h"
 
 @interface TJSelfCenterViewController()<UITableViewDataSource, UITableViewDelegate>
 
@@ -71,7 +73,9 @@
         [[Routable sharedRouter] open:@"myInfo"];
     }
     else if (indexPath.row == 1) {
-        [[Routable sharedRouter] open:@"myPublish"];
+        TJMyPublishViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:NSStringFromClass([TJMyPublishViewController class])];
+        controller.user = [TJUser getCurrentUser];
+        [self.navigationController pushViewController:controller animated:YES];
     }
 }
 

@@ -1,5 +1,5 @@
 //
-//  TJUserCenterViewController.m
+//  TJMyInfoCenterViewController.m
 //  Affection
 //
 //  Created by 邱峰 on 5/3/15.

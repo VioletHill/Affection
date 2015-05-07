@@ -55,8 +55,7 @@
 
 - (CGSize)collectionViewContentSize
 {
-    //return CGSizeMake(320, 1000);
-    return CGSizeMake(320, MAX(self.column0, self.column1));
+    return CGSizeMake(0, MAX(self.column0, self.column1) + 50);
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect
