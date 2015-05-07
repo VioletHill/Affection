@@ -49,6 +49,12 @@
     }];
 }
 
+- (void)getMaterialWithUser:(TJUser *)user complete:(void (^)(NSArray *, NSError *))complete
+{
+    //to do
+    [self getMaterialComplete:complete];
+}
+
 - (void)getMaterialWithType:(TJMaterialArea)area limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete
 {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];

@@ -148,13 +148,13 @@
 }
 
 #pragma mark - Action 
-- (IBAction)addButtonPress:(id)sender
+- (IBAction)mySelfButtonPress:(id)sender
 {
     if ([TJUser getCurrentUser] == nil) {
         [[Routable sharedRouter] open:@"login"];
     }
     else {
-        [[Routable sharedRouter] open:@"post"];
+        [[Routable sharedRouter] open:@"selfCenter"];
     }
 
 }

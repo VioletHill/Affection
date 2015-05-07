@@ -8,6 +8,6 @@
 
 #import "TJBaseTableViewController.h"
 
-@interface TJUserCenterViewController : TJBaseTableViewController
+@interface TJMyInfoCenterViewController : TJBaseTableViewController
 
 @end

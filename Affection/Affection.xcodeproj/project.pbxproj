@@ -21,6 +21,8 @@
 		F34C49E21AFB289700BC6170 /* TJClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C49E11AFB289700BC6170 /* TJClassifyViewController.m */; };
 		F34C49E51AFB32BC00BC6170 /* TJClassifyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C49E41AFB32BC00BC6170 /* TJClassifyTableViewCell.m */; };
 		F34C49F01AFB5EFD00BC6170 /* TJMaterialDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C49EF1AFB5EFD00BC6170 /* TJMaterialDetailViewController.m */; };
+		F34C49F31AFB877900BC6170 /* TJSelfCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C49F21AFB877900BC6170 /* TJSelfCenterViewController.m */; };
+		F34C49F61AFB8CE900BC6170 /* TJMyPublishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F34C49F51AFB8CE900BC6170 /* TJMyPublishViewController.m */; };
 		F3C0E1411AFA60490058B23C /* Classify.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C0E1401AFA60490058B23C /* Classify.plist */; };
 		F3C4E56A1AF76EC00011BD3B /* TJPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E5691AF76EC00011BD3B /* TJPostViewController.m */; };
 		F3C4E56C1AF76FC70011BD3B /* viewController.plist in Resources */ = {isa = PBXBuildFile; fileRef = F3C4E56B1AF76FC70011BD3B /* viewController.plist */; };
@@ -35,7 +37,7 @@
 		F3E918971AF5F98800515F19 /* TJRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E918961AF5F98800515F19 /* TJRegisterViewController.m */; };
 		F3E9189A1AF5FA6B00515F19 /* CALayer+XibConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E918991AF5FA6B00515F19 /* CALayer+XibConfiguration.m */; };
 		F3E9189E1AF5FE3300515F19 /* MBProgressHUD+AppProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E9189D1AF5FE3300515F19 /* MBProgressHUD+AppProgressView.m */; };
-		F3E918A11AF60BCF00515F19 /* TJUserCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E918A01AF60BCF00515F19 /* TJUserCenterViewController.m */; };
+		F3E918A11AF60BCF00515F19 /* TJMyInfoCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E918A01AF60BCF00515F19 /* TJMyInfoCenterViewController.m */; };
 		F3EC4F4C1AEF989B0090AF7A /* TJUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EC4F4B1AEF989B0090AF7A /* TJUserManager.m */; };
 		F3EC4F4F1AEFC38C0090AF7A /* TJClassifyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3EC4F4E1AEFC38C0090AF7A /* TJClassifyManager.m */; };
 		F3EC4F511AF076A30090AF7A /* libz.1.2.5.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = F3EC4F501AF076A30090AF7A /* libz.1.2.5.dylib */; };
@@ -83,6 +85,10 @@
 		F34C49EA1AFB43E200BC6170 /* TJAppConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJAppConst.h; sourceTree = "<group>"; };
 		F34C49EE1AFB5EFD00BC6170 /* TJMaterialDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMaterialDetailViewController.h; sourceTree = "<group>"; };
 		F34C49EF1AFB5EFD00BC6170 /* TJMaterialDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMaterialDetailViewController.m; sourceTree = "<group>"; };
+		F34C49F11AFB877900BC6170 /* TJSelfCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJSelfCenterViewController.h; sourceTree = "<group>"; };
+		F34C49F21AFB877900BC6170 /* TJSelfCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJSelfCenterViewController.m; sourceTree = "<group>"; };
+		F34C49F41AFB8CE900BC6170 /* TJMyPublishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMyPublishViewController.h; sourceTree = "<group>"; };
+		F34C49F51AFB8CE900BC6170 /* TJMyPublishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMyPublishViewController.m; sourceTree = "<group>"; };
 		F3C0E1401AFA60490058B23C /* Classify.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Classify.plist; sourceTree = "<group>"; };
 		F3C4E5681AF76EC00011BD3B /* TJPostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJPostViewController.h; sourceTree = "<group>"; };
 		F3C4E5691AF76EC00011BD3B /* TJPostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPostViewController.m; sourceTree = "<group>"; };
@@ -108,8 +114,8 @@
 		F3E918991AF5FA6B00515F19 /* CALayer+XibConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+XibConfiguration.m"; sourceTree = "<group>"; };
 		F3E9189C1AF5FE3300515F19 /* MBProgressHUD+AppProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+AppProgressView.h"; sourceTree = "<group>"; };
 		F3E9189D1AF5FE3300515F19 /* MBProgressHUD+AppProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+AppProgressView.m"; sourceTree = "<group>"; };
-		F3E9189F1AF60BCF00515F19 /* TJUserCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserCenterViewController.h; sourceTree = "<group>"; };
-		F3E918A01AF60BCF00515F19 /* TJUserCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserCenterViewController.m; sourceTree = "<group>"; };
+		F3E9189F1AF60BCF00515F19 /* TJMyInfoCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMyInfoCenterViewController.h; sourceTree = "<group>"; };
+		F3E918A01AF60BCF00515F19 /* TJMyInfoCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMyInfoCenterViewController.m; sourceTree = "<group>"; };
 		F3EC4F4A1AEF989B0090AF7A /* TJUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJUserManager.h; sourceTree = "<group>"; };
 		F3EC4F4B1AEF989B0090AF7A /* TJUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJUserManager.m; sourceTree = "<group>"; };
 		F3EC4F4D1AEFC38C0090AF7A /* TJClassifyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJClassifyManager.h; sourceTree = "<group>"; };
@@ -246,14 +252,18 @@
 				F3E918931AF5F97B00515F19 /* TJLoginViewController.m */,
 				F3E918951AF5F98800515F19 /* TJRegisterViewController.h */,
 				F3E918961AF5F98800515F19 /* TJRegisterViewController.m */,
-				F3E9189F1AF60BCF00515F19 /* TJUserCenterViewController.h */,
-				F3E918A01AF60BCF00515F19 /* TJUserCenterViewController.m */,
+				F3E9189F1AF60BCF00515F19 /* TJMyInfoCenterViewController.h */,
+				F3E918A01AF60BCF00515F19 /* TJMyInfoCenterViewController.m */,
 				F3C4E5681AF76EC00011BD3B /* TJPostViewController.h */,
 				F3C4E5691AF76EC00011BD3B /* TJPostViewController.m */,
 				F34C49E01AFB289700BC6170 /* TJClassifyViewController.h */,
 				F34C49E11AFB289700BC6170 /* TJClassifyViewController.m */,
 				F34C49EE1AFB5EFD00BC6170 /* TJMaterialDetailViewController.h */,
 				F34C49EF1AFB5EFD00BC6170 /* TJMaterialDetailViewController.m */,
+				F34C49F11AFB877900BC6170 /* TJSelfCenterViewController.h */,
+				F34C49F21AFB877900BC6170 /* TJSelfCenterViewController.m */,
+				F34C49F41AFB8CE900BC6170 /* TJMyPublishViewController.h */,
+				F34C49F51AFB8CE900BC6170 /* TJMyPublishViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -453,6 +463,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F34C49F61AFB8CE900BC6170 /* TJMyPublishViewController.m in Sources */,
 				F3C4E57C1AF78FFA0011BD3B /* TJMaterialManager.m in Sources */,
 				F309541E1AEF356200906658 /* TJMaterial.m in Sources */,
 				F309542A1AEF3BC000906658 /* TJMaterialImage.m in Sources */,
@@ -468,10 +479,11 @@
 				F3E918971AF5F98800515F19 /* TJRegisterViewController.m in Sources */,
 				F3C4E56A1AF76EC00011BD3B /* TJPostViewController.m in Sources */,
 				F34C49E21AFB289700BC6170 /* TJClassifyViewController.m in Sources */,
+				F34C49F31AFB877900BC6170 /* TJSelfCenterViewController.m in Sources */,
 				F3E8B3101AF8A638009ADDF2 /* TJDashboardViewLayout.m in Sources */,
 				F3EC4F4F1AEFC38C0090AF7A /* TJClassifyManager.m in Sources */,
 				F34C49F01AFB5EFD00BC6170 /* TJMaterialDetailViewController.m in Sources */,
-				F3E918A11AF60BCF00515F19 /* TJUserCenterViewController.m in Sources */,
+				F3E918A11AF60BCF00515F19 /* TJMyInfoCenterViewController.m in Sources */,
 				F3E918911AF4B3D100515F19 /* TJDashboardViewController.m in Sources */,
 				F30954211AEF38B900906658 /* TJUser.m in Sources */,
 				F3E8B30B1AF86B5F009ADDF2 /* TJDashboardViewCell.m in Sources */,

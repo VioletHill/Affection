@@ -4,9 +4,15 @@
 <dict>
 	<key>home</key>
 	<string>TJDashboardViewController</string>
-    <key>login</key>
-    <string>TJLoginViewController</string>
-    <key>post</key>
-    <string>TJPostViewController</string>
+	<key>login</key>
+	<string>TJLoginViewController</string>
+	<key>post</key>
+	<string>TJPostViewController</string>
+	<key>selfCenter</key>
+	<string>TJSelfCenterViewController</string>
+	<key>myInfo</key>
+	<string>TJMyInfoCenterViewController</string>
+	<key>myPublish</key>
+	<string>TJMyPublishViewController</string>
 </dict>
 </plist>

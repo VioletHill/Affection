@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 TongjiUniversity. All rights reserved.
 //
 
-#import "TJUserCenterViewController.h"
+#import "TJMyInfoCenterViewController.h"
 #import <UIActionSheet+BlocksKit.h>
 #import <UIAlertView+BlocksKit.h>
 #import "MBProgressHUD+AppProgressView.h"
@@ -15,7 +15,7 @@
 #import <BmobSDK/Bmob.h>
 
 
-@interface TJUserCenterViewController()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+@interface TJMyInfoCenterViewController()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 
 @property (nonatomic, strong) TJUser* user;
 
@@ -25,7 +25,7 @@
 
 @end
 
-@implementation TJUserCenterViewController
+@implementation TJMyInfoCenterViewController
 
 - (void)viewDidLoad
 {

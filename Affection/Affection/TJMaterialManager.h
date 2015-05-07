@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "TJMaterial.h"
 
+@class TJUser;
+
 @interface TJMaterialManager : NSObject
 
 + (instancetype)sharedMaterialManager;
@@ -16,6 +18,8 @@
 - (void)postMaterial:(TJMaterial *)material complete:(void(^)(BOOL success, NSError *error))complete;
 
 - (void)getMaterialComplete:(void (^)(NSArray *, NSError *))complete;
+
+- (void)getMaterialWithUser:(TJUser *)user complete:(void (^)(NSArray *, NSError *))complete;
 
 - (void)getMaterialWithType:(TJMaterialArea)area limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete;
 
