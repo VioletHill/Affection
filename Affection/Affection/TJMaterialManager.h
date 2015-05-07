@@ -19,4 +19,6 @@
 
 - (void)getMaterialWithType:(TJMaterialArea)area limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete;
 
+- (void)queryForMaterialWithType:(TJMaterialArea)area classify:(NSString *)classifyName limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete;
+
 @end

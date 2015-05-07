@@ -15,7 +15,7 @@
 
 + (instancetype)sharedClassifyManager;
 
-- (void)queryForMaterial:(TJMaterial *)material complete:(void (^)(NSArray *, NSError *))complete;
+- (NSArray *)getLocalClassify;
 
 - (void)queryForClassify:(NSString *)classifyName complete:(void (^)(TJClassify *, NSError *) )complete;
 

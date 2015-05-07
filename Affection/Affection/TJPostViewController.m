@@ -47,8 +47,7 @@
 - (NSArray *)classify
 {
     if (_classify == nil) {
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"Classify" ofType:@"plist"];
-        _classify = [NSArray arrayWithContentsOfFile:path];
+        _classify = [[TJClassifyManager sharedClassifyManager] getLocalClassify];
     }
     return _classify;
 }

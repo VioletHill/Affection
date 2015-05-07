@@ -34,14 +34,15 @@
 {
     [super prepareLayout];
     
+    self.column0 = 0;
+    self.column1 = 0;
+    self.positionDictionary = nil;
+    self.attrs = nil;
+    
     NSInteger count= self.data.count;
     if (count == 0) {
         return;
     }
-    
-    self.column0 = 0;
-    self.column1 = 0;
-    self.positionDictionary = nil;
     
     NSMutableArray* arrM=[NSMutableArray array];
     for (int i = 0; i < count; i++) {

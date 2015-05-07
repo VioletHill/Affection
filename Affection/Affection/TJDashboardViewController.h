@@ -10,4 +10,6 @@
 
 @interface TJDashboardViewController : TJBaseViewController
 
+@property (nonatomic, strong) NSString *classifyName;
+
 @end

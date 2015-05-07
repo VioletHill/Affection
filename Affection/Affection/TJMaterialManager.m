@@ -8,6 +8,7 @@
 
 #import "TJMaterialManager.h"
 #import <BmobSDK/Bmob.h>
+#import "TJClassifyManager.h"
 
 @implementation TJMaterialManager
 
@@ -54,6 +55,7 @@
     [query orderByDescending:@"createdAt"];
     query.skip = skip;
     query.limit = limit;
+    [query whereKey:@"area" equalTo:@(area)];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
@@ -67,6 +69,41 @@
             complete(result, nil);
         }
     }];
+}
+
+- (void)queryForMaterialWithType:(TJMaterialArea)area classify:(NSString *)classifyName limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete
+{
+    if ([classifyName isEqualToString:@"全部"]) {
+        [self getMaterialWithType:area limit:limit skip:skip complete:complete];
+    }
+    else {
+        BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+        [query orderByDescending:@"createdAt"];
+        query.limit = limit;
+        query.skip = skip;
+        [query whereKey:@"area" equalTo:@(area)];
+
+        [[TJClassifyManager sharedClassifyManager] queryForClassify:classifyName complete:^(TJClassify *classify, NSError *error) {
+            if (error) {
+                complete(nil, error);
+            }
+            else {
+                [query whereKey:@"classify" equalTo:classify];
+                [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+                    if (error) {
+                        complete(nil, error);
+                    }
+                    else {
+                        NSMutableArray *result = [NSMutableArray array];
+                        for (BmobObject *object in array) {
+                            [result addObject:[TJMaterial copyWithBomb:object]];
+                        }
+                        complete(result, nil);
+                    }
+                }];
+            }
+        }];
+    }
 }
 
 @end

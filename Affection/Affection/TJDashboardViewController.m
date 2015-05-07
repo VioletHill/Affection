@@ -12,6 +12,7 @@
 #import "TJDashboardViewCell.h"
 #import "MBProgressHUD+AppProgressView.h"
 #import "TJDashboardViewLayout.h"
+#import "TJAppConst.h"
 #import <SVPullToRefresh.h>
 
 @interface TJDashboardViewController()<UICollectionViewDataSource, UICollectionViewDelegate>
@@ -21,6 +22,12 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet TJDashboardViewLayout *collectionViewLayout;
 
+@property (nonatomic, assign) TJMaterialArea area;
+
+@property (nonatomic, assign) NSInteger page;
+
+@property (nonatomic, assign) BOOL hasMore;
+
 @property (nonatomic, strong) NSMutableArray *data;
 
 @end
@@ -29,21 +36,23 @@
 
 @synthesize data = _data;
 
+#pragma mark - Life Circle
+
 - (void)viewDidLoad
 {
     [[Routable sharedRouter] setNavigationController:self.navigationController];
+    
+    self.area = TJMaterialAreaBenbu;
+    
     self.postButton.layer.zPosition = 1;
    // self.postButton.
+    
+    self.classifyName = @"全部";
     
     __weak typeof(self) weakSelf = self;
     [self.collectionView addPullToRefreshWithActionHandler:^() {
         [weakSelf refreshData];
     }];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -77,20 +86,57 @@
     }
 }
 
-#pragma mark - refreshData
+#pragma mark - Load Data
 
 - (void)refreshData
 {
-    [[TJMaterialManager sharedMaterialManager] getMaterialComplete:^(NSArray *array, NSError *error) {
+    self.page = 0;
+    self.hasMore = YES;
+    
+    [[TJMaterialManager sharedMaterialManager] queryForMaterialWithType:self.area classify:self.classifyName limit:kDefaultLimit skip:self.page * kDefaultLimit complete:^(NSArray *array, NSError *error) {
         [self.collectionView.pullToRefreshView stopAnimating];
         if (error) {
             [MBProgressHUD showErrorProgressInView:nil withText:@"加载失败"];
         }
         else {
+            self.page = self.page + 1;
             self.data = [array mutableCopy];
             [self.collectionView reloadData];
+            
+            if (array.count < kDefaultLimit) {
+                self.hasMore = NO;
+            }
         }
     }];
+}
+
+- (void)addMore
+{
+    if (!self.hasMore) {
+        return;
+    }
+    
+    [[TJMaterialManager sharedMaterialManager] queryForMaterialWithType:self.area classify:self.classifyName limit:kDefaultLimit skip:self.page * kDefaultLimit complete:^(NSArray *array, NSError *error) {
+        if (error) {
+        }
+        else {
+            self.page = self.page + 1;
+            [self.collectionView performBatchUpdates:^() {
+                NSMutableArray *arrayWithIndexPaths = [NSMutableArray array];
+                for (NSInteger i = self.data.count; i < array.count + self.data.count; i ++) {
+                    [arrayWithIndexPaths addObject:[NSIndexPath indexPathForRow:i inSection:0]];
+                }
+                [self.data addObjectsFromArray:array];
+                [self.collectionView insertItemsAtIndexPaths:arrayWithIndexPaths];
+            } completion:nil];
+            
+            if (array.count < kDefaultLimit) {
+                self.hasMore = NO;
+            }
+        }
+        
+    }];
+
 }
 
 #pragma mark - Action 
@@ -132,9 +178,27 @@
     TJDashboardViewCell *cell = [self.collectionView dequeueReusableCellWithReuseIdentifier:NSStringFromClass([TJDashboardViewCell class]) forIndexPath:indexPath];
     [cell setCellWithMaterial:self.data[indexPath.row]];
     
+    if (indexPath.row == self.data.count - 1) {
+        [self addMore];
+    }
+    
     return cell;
 }
 
+#pragma mark - Segment
 
+- (IBAction)areaChange:(UISegmentedControl *)sender
+{
+    if (self.areaSegment.selectedSegmentIndex == 0) {
+        self.area = TJMaterialAreaBenbu;
+    }
+    else {
+        self.area = TJMaterialAreaJiading;
+    }
+    
+
+    [self.collectionView scrollRectToVisible:CGRectMake(0, 0, 0, 0) animated:YES];
+    [self.collectionView triggerPullToRefresh];
+}
 
 @end

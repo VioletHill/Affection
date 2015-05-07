@@ -12,6 +12,8 @@
 
 @interface TJClassifyManager()
 
+@property (nonatomic, strong) NSArray *localClassify;
+
 @end
 
 @implementation TJClassifyManager
@@ -26,17 +28,18 @@
     return manager;
 }
 
-- (void)queryForMaterial:(TJMaterial *)material complete:(void (^)(NSArray *, NSError *))complete
+- (NSArray *)localClassify
 {
-    
-    BmobQuery *query = [BmobQuery queryWithClassName:NSStringFromClass(material.class)];
-    [query whereObjectKey:@"classify" relatedTo:material];
-    [query findObjectsInBackgroundWithBlock:^(NSArray *results, NSError *error) {
-        if (complete) {
-            complete(results, error);
-        }
-    }];
-    
+    if (_localClassify == nil) {
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"Classify" ofType:@"plist"];
+        _localClassify = [NSArray arrayWithContentsOfFile:path];
+    }
+    return _localClassify;
+}
+
+- (NSArray *)getLocalClassify
+{
+    return self.localClassify;
 }
 
 - (void)queryForClassify:(NSString *)classifyName complete:(void (^)(TJClassify *, NSError *) )complete
