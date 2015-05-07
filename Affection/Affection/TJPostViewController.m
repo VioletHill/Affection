@@ -14,6 +14,7 @@
 #import <UIActionSheet+BlocksKit.h>
 #import <UIAlertView+BlocksKit.h>
 #import "TJMaterialImage.h"
+#import "TJClassifyManager.h"
 
 @interface TJPostViewController()<UINavigationControllerDelegate, UIImagePickerControllerDelegate, UIPickerViewDelegate, UIPickerViewDataSource>
 
@@ -54,7 +55,6 @@
 
 #pragma mark - Post
 
-
 - (IBAction)postButtonPress:(UIButton *)sender
 {
     TJMaterial *material = [[TJMaterial alloc] init];
@@ -83,19 +83,24 @@
     }
     
     
-
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"发布中"];
-    
-    [[TJMaterialManager sharedMaterialManager] postMaterial:material complete:^(BOOL success, NSError *error) {
-        [loading hide:YES];
-        
-        if (error) {
-            [MBProgressHUD showErrorProgressInView:nil withText:@"发送失败,请稍后再试"];
+    [[TJClassifyManager sharedClassifyManager] queryForClassify:self.classifyButton.titleLabel.text complete:^(TJClassify *classify, NSError *error) {
+        if (error == nil) {
+            material.classify = classify;
+            [[TJMaterialManager sharedMaterialManager] postMaterial:material complete:^(BOOL success, NSError *error) {
+                [loading hide:YES];
+                if (error) {
+                    [MBProgressHUD showErrorProgressInView:nil withText:@"发送失败,请稍后再试"];
+                }
+                else {
+                    [MBProgressHUD showSucessProgressInView:nil withText:@"发布成功"];
+                }
+            }];
         }
         else {
-            [MBProgressHUD showSucessProgressInView:nil withText:@"发布成功"];
+            [loading hide:YES];
+            [MBProgressHUD showErrorProgressInView:nil withText:@"发送失败,请稍后再试"];
         }
-        
     }];
 }
 
@@ -115,7 +120,6 @@
 
 - (void)showImagePicker:(UIImagePickerControllerSourceType)sourceType
 {
-    
     if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
         UIImagePickerController *picker = [[UIImagePickerController alloc] init];
         

@@ -30,4 +30,21 @@
     [self setObject:classifyName forKey:@"classifyName"];
 }
 
+
++ (TJClassify *)copyWithBmobObject:(BmobObject *)object
+{
+    TJClassify *classify = [[TJClassify alloc] init];
+    
+    classify.createdAt = object.createdAt;
+    classify.objectId = object.objectId;
+    classify.updatedAt = object.updatedAt;
+    classify.className = object.className;
+    classify.ACL = object.ACL;
+    
+    classify.classifyName = [object objectForKey:@"classifyName"];
+    
+    return classify;
+}
+
+
 @end

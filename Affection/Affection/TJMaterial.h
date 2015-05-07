@@ -11,6 +11,7 @@
 
 @class TJUser;
 @class TJMaterialImage;
+@class TJClassify;
 
 typedef NS_ENUM(NSInteger, TJMaterialArea) {        //二手物品所在地区
     TJMaterialAreaBenbu = 0,                          //0 代表本部
@@ -44,7 +45,7 @@ typedef NS_ENUM(NSInteger, TJMaterialStatus) {      //二手物品状态 是否�
  *  Please do not use getter for thie property, it will return nil
  *  Use queryForMaterial in TJClassifyManager instead
  */
-@property (nonatomic, strong) NSArray *classify;                //物品分类 最多支持用户一级分类和二级分类
+@property (nonatomic, strong) TJClassify *classify;                //物品分类
 
 @property (nonatomic, strong) TJUser *poster;                   //发布者
 

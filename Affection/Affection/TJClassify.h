@@ -13,4 +13,6 @@
 
 @property (nonatomic, strong) NSString *classifyName;   //分类名称
 
++ (TJClassify *)copyWithBmobObject:(BmobObject *)object;
+
 @end

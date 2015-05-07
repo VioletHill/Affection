@@ -41,7 +41,39 @@
 
 - (void)queryForClassify:(NSString *)classifyName complete:(void (^)(TJClassify *, NSError *) )complete
 {
+    BmobQuery *query = [BmobQuery queryWithClassName:@"classify"];
+    [query whereKey:@"classifyName" equalTo:classifyName];
+    query.limit = 1;
     
+    [query findObjectsInBackgroundWithBlock:^(NSArray *result , NSError *error) {
+        if (error) {
+            if (complete) {
+                complete(nil, error);
+            }
+        }
+        else {
+            TJClassify *classify = nil;
+            if ([result firstObject]) {
+                classify = [TJClassify copyWithBmobObject:[result firstObject]];
+                if (complete) {
+                    complete(classify, nil);
+                }
+            }
+            else {
+                TJClassify *classify = [[TJClassify alloc] init];
+                classify.classifyName = classifyName;
+                [classify saveInBackgroundWithResultBlock:^(BOOL success, NSError *error) {
+                    if (success) {
+                        complete(classify, nil);
+                    }
+                    else {
+                        complete(nil, error);
+                    }
+                }];
+                return;
+            }
+        }
+    }];
 }
 
 @end

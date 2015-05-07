@@ -102,20 +102,21 @@
     return [self objectForKey:@"poster"];
 }
 
-- (void)setClassify:(NSArray *)classify
+- (void)setClassify:(TJClassify *)classify
 {
-    BmobRelation *relation = [[BmobRelation alloc] init];
-    for (TJClassify *object in classify) {
-        if ([object isKindOfClass:[TJClassify class]]) {
-            [relation addObject:object];
-        }
-    }
-    [self addRelation:relation forKey:@"classify"];
+    [self setObject:classify forKey:@"classify"];
+//    BmobRelation *relation = [[BmobRelation alloc] init];
+//    for (TJClassify *object in classify) {
+//        if ([object isKindOfClass:[TJClassify class]]) {
+//            [relation addObject:object];
+//        }
+//    }
+//    [self addRelation:relation forKey:@"classify"];
 }
 
-- (NSArray *)classify
+- (TJClassify *)classify
 {
-    return nil;
+    return [self objectForKey:@"classify"];
 }
 
 - (void)setHoverImage:(BmobFile *)hoverImage
