@@ -31,7 +31,15 @@
     }
     
     self.descriptionLabel.text = material.materialDescription;
-    self.priceLabel.text = [NSString stringWithFormat:@"%@", material.price];
+    self.priceLabel.text = [NSString stringWithFormat:@"￥ %@", material.price];
+    self.createAtLabel.text = [self stringFromDate:material.createdAt];
+}
+
+- (NSString *)stringFromDate:(NSDate *)date
+{
+    NSDateFormatter *format = [[NSDateFormatter alloc] init];
+    [format setDateFormat: @"yyyy-MM-dd HH:mm:ss"];
+    return  [format stringFromDate:date];
 }
 
 @end
