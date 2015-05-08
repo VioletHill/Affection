@@ -29,6 +29,13 @@
 
 - (void)viewDidLoad
 {
+    if (self.user.objectId == [TJUser getCurrentUser].objectId) {
+        self.title = @"我的发布";
+    }
+    else {
+        self.title = @"Ta的发布";
+    }
+    
     MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"加载中.."];
     
     [[TJMaterialManager sharedMaterialManager]  getMaterialWithUser:self.user complete:^(NSArray *array, NSError *error) {

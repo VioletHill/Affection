@@ -24,6 +24,7 @@
 @synthesize hoverImage = _hoverImage;
 @synthesize hoverImageWidth = _hoverImageWidth;
 @synthesize hoverImageHeight = _hoverImageHeight;
+@synthesize poster = _poster;
 
 @synthesize classify  = _classify;
 
@@ -94,12 +95,13 @@
 
 - (void)setPoster:(TJUser *)poster
 {
+    _poster = poster;
     [self setObject:poster forKey:@"poster"];
 }
 
 - (TJUser *)poster
 {
-    return [self objectForKey:@"poster"];
+    return _poster;
 }
 
 - (void)setClassify:(TJClassify *)classify
@@ -162,6 +164,7 @@
     material.hoverImageWidth = [object objectForKey:@"hoverImageWidth"];
     material.hoverImageHeight = [object objectForKey:@"hoverImageHeight"];
     material.hoverImage = [object objectForKey:@"hoverImage"];
+    material.poster = [TJUser copyWithUser:[object objectForKey:@"poster"]];
     NSNumber *area = [object objectForKey:@"area"];
     
     if ([area isEqualToNumber:@(0)]) {

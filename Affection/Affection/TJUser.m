@@ -12,8 +12,6 @@
 
 @end
 
-
-
 @implementation TJUser
 
 @synthesize name = _name;

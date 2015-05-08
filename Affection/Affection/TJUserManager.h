@@ -23,4 +23,6 @@
 
 - (void)loginWithMobileNumber:(NSString *)mobileNumber password:(NSString *)password complete:(void (^)(TJUser *user, NSError *error))complete;
 
+- (void)getUserWithUserObjectId:(NSString *)objectId complete:(void (^)(TJUser *user, NSError *error))complete;
+
 @end

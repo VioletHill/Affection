@@ -60,6 +60,7 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="jPf-dl-jYK" secondAttribute="trailing" id="47K-7Y-q8V"/>
                 <constraint firstItem="0Zo-re-KUI" firstAttribute="leading" secondItem="EPt-cQ-PVk" secondAttribute="leading" constant="20" id="9nk-QL-SBc"/>
@@ -78,6 +79,11 @@
                 <constraint firstItem="jPf-dl-jYK" firstAttribute="leading" secondItem="EPt-cQ-PVk" secondAttribute="leading" id="xRq-h7-ZFp"/>
                 <constraint firstItem="fyB-yl-9wg" firstAttribute="leading" secondItem="EPt-cQ-PVk" secondAttribute="leading" id="zDa-h9-Yfd"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                    <integer key="value" value="5"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="createAtLabel" destination="1T2-Ga-OrT" id="6fs-gQ-gPv"/>
                 <outlet property="descriptionLabel" destination="0Zo-re-KUI" id="5pC-pz-6dF"/>

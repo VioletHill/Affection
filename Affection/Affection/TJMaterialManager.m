@@ -35,6 +35,7 @@
 {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
     [query orderByDescending:@"createdAt"];
+    [query includeKey:@"poster"];
     query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         if (error) {
@@ -55,6 +56,7 @@
     BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
     [query orderByDescending:@"createdAt"];
     [query whereKey:@"poster" equalTo:user];
+    [query includeKey:@"poster"];
     query.limit = 1000;
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -78,6 +80,7 @@
     [query orderByDescending:@"createdAt"];
     query.skip = skip;
     query.limit = limit;
+    [query includeKey:@"poster"];
     [query whereKey:@"area" equalTo:@(area)];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
@@ -102,6 +105,7 @@
     else {
         BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
         [query orderByDescending:@"createdAt"];
+        [query includeKey:@"poster"];
         query.limit = limit;
         query.skip = skip;
         [query whereKey:@"area" equalTo:@(area)];

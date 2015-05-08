@@ -65,11 +65,36 @@
 - (void)loginWithMobileNumber:(NSString *)mobileNumber password:(NSString *)password complete:(void (^)(TJUser *, NSError *))complete
 {
     [BmobUser loginWithUsernameInBackground:mobileNumber password:password block:^(BmobUser *user, NSError *error) {
-        if (complete) {
-            complete((TJUser *)user, error);
+        if (error) {
+            complete(nil, error);
+        }
+        else {
+            TJUser *tjUser = [TJUser copyWithUser:user];
+            complete(tjUser, nil);
         }
     }];
 }
 
+
+- (void)getUserWithUserObjectId:(NSString *)objectId complete:(void (^)(TJUser *, NSError *))complete
+{
+    BmobQuery *query = [BmobUser query];
+    [query whereKey:@"objectId" equalTo:objectId];
+    query.limit = 1;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+        if (array) {
+            if (array.count != 0) {
+                TJUser *tjUser = [TJUser copyWithUser:[array firstObject]];
+                complete(tjUser, nil);
+            }
+            else {
+                complete(nil, [[NSError alloc] init]);
+            }
+        }
+        else {
+            complete(nil, error);
+        }
+    }];
+}
 
 @end
