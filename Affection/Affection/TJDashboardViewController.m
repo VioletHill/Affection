@@ -215,7 +215,6 @@
         self.area = TJMaterialAreaJiading;
     }
     
-
     [self.collectionView scrollRectToVisible:CGRectZero animated:YES];
     [self.collectionView triggerPullToRefresh];
 }

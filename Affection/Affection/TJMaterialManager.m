@@ -133,4 +133,34 @@
     }
 }
 
+- (void)searchForMaterialWithType:(TJMaterialArea)area key:(NSString *)key limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete
+{
+    key = [key stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    if ([key isEqualToString:@""]) {
+        return;
+    }
+    else {
+        BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+        [query orderByDescending:@"createdAt"];
+        [query includeKey:@"poster"];
+        query.limit = 1000;
+        /**
+         *  TO DO: add Tag search here
+         */
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            if (error) {
+                complete(nil, error);
+            }
+            else {
+                NSMutableArray *result = [NSMutableArray array];
+                for (BmobObject *object in array) {
+                    [result addObject:[TJMaterial copyWithBomb:object]];
+                }
+                complete(result, nil);
+            }
+        }];
+    }
+}
+
 @end

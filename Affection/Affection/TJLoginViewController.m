@@ -52,6 +52,7 @@
         [loading hide:YES];
         if (user) {
             [MBProgressHUD showSucessProgressInView:nil withText:@"登录成功"];
+            [self.navigationController popToRootViewControllerAnimated:NO];
             UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TJMyInfoCenterViewController"];
             [self.navigationController pushViewController:controller animated:YES];
             

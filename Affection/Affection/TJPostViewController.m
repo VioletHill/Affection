@@ -60,7 +60,7 @@
     material.materialDescription = self.materialDescriptionTextView.text;
     material.price = @([self.priceTextField.text floatValue]);
     material.tags = @[@"a",@"b"];
-    
+    material.status = TJMaterialPengding;
     if (self.areaSegment.selectedSegmentIndex == 0) {
         material.area = TJMaterialAreaBenbu;
     }

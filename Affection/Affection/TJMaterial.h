@@ -19,9 +19,9 @@ typedef NS_ENUM(NSInteger, TJMaterialArea) {        //二手物品所在地区
 };
 
 typedef NS_ENUM(NSInteger, TJMaterialStatus) {      //二手物品状态 是否被卖
-    TJMaterialDelete = 0,                             //该物品被删除 例如 发布者不想卖了
+    TJMaterialPengding = 0,                           //该物品还没有人买
     TJMaterialSaled  = 1,                             //该物品已经被人买了
-    TJMaterialPengding = 2,                           //该物品还没有人买
+    TJMaterialDelete = 2,                             //该物品被删除 例如 发布者不想卖了
     TJMaterialRequest = 3,                            //请求某种东西
 };
 

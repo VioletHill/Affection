@@ -25,6 +25,7 @@
 @synthesize hoverImageWidth = _hoverImageWidth;
 @synthesize hoverImageHeight = _hoverImageHeight;
 @synthesize poster = _poster;
+@synthesize status = _status;
 
 @synthesize classify  = _classify;
 
@@ -151,6 +152,16 @@
     return [self objectForKey:@"hoverImageHeight"];
 }
 
+- (void)setStatus:(TJMaterialStatus)status
+{
+    [self setObject:@(status) forKey:@"status"];
+}
+
+- (TJMaterialStatus)status
+{
+    return [[self objectForKey:@"status"] integerValue];
+}
+
 + (TJMaterial *)copyWithBomb:(BmobObject *)object
 {
     TJMaterial *material = [[TJMaterial alloc] init];
@@ -165,6 +176,8 @@
     material.hoverImageHeight = [object objectForKey:@"hoverImageHeight"];
     material.hoverImage = [object objectForKey:@"hoverImage"];
     material.poster = [TJUser copyWithUser:[object objectForKey:@"poster"]];
+    material.status = [[object objectForKey:@"status"] integerValue];
+    
     NSNumber *area = [object objectForKey:@"area"];
     
     if ([area isEqualToNumber:@(0)]) {

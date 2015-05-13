@@ -25,4 +25,6 @@
 
 - (void)queryForMaterialWithType:(TJMaterialArea)area classify:(NSString *)classifyName limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete;
 
+- (void)searchForMaterialWithType:(TJMaterialArea)area key:(NSString *)key limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete;   //根据关键字搜索 key其实对应的是数据库中的tag
+
 @end
