@@ -34,6 +34,7 @@
 - (void)getMaterialComplete:(void (^)(NSArray *, NSError *))complete
 {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+    [query whereKey:@"status" equalTo:@(0)];
     [query orderByDescending:@"createdAt"];
     [query includeKey:@"poster"];
     query.limit = 1000;
@@ -77,6 +78,7 @@
 - (void)getMaterialWithType:(TJMaterialArea)area limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete
 {
     BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+    [query whereKey:@"status" equalTo:@(0)];
     [query orderByDescending:@"createdAt"];
     query.skip = skip;
     query.limit = limit;
@@ -104,6 +106,7 @@
     }
     else {
         BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+        [query whereKey:@"status" equalTo:@(0)];
         [query orderByDescending:@"createdAt"];
         [query includeKey:@"poster"];
         query.limit = limit;
@@ -141,6 +144,7 @@
     }
     else {
         BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
+        [query whereKey:@"status" equalTo:@(0)];
         [query orderByDescending:@"createdAt"];
         [query includeKey:@"poster"];
         query.limit = 1000;
