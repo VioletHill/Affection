@@ -38,8 +38,6 @@ typedef NS_ENUM(NSInteger, TJMaterialStatus) {      //二手物品状态 是否�
 
 @property (nonatomic, assign) TJMaterialArea area;              //发布者选择的交易地区 本部或者嘉定
 
-@property (nonatomic, strong) NSArray *tags;                    //用户对二手物品打的tag 可以用于搜索
-
 /**
  *  由TJClassfiy组成的Array
  *  Please do not use getter for thie property, it will return nil
@@ -55,6 +53,8 @@ typedef NS_ENUM(NSInteger, TJMaterialStatus) {      //二手物品状态 是否�
 @property (nonatomic, strong) BmobFile *hoverImage;      // 首页显示的图片 其实就是 images[0]
 
 @property (nonatomic, assign) TJMaterialStatus status;          //d
+
+@property (nonatomic, strong) NSString *title;          //二手物品标题 用于搜索
 
 + (TJMaterial *)copyWithBomb:(BmobObject *)object;
 

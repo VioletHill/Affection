@@ -146,6 +146,7 @@
         BmobQuery *query = [BmobQuery queryWithClassName:@"Material"];
         [query whereKey:@"status" equalTo:@(0)];
         [query orderByDescending:@"createdAt"];
+        [query whereKey:@"title" matchesWithRegex:[NSString stringWithFormat:@".*%@.*",key]];
         [query includeKey:@"poster"];
         query.limit = 1000;
         /**

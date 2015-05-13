@@ -25,6 +25,7 @@
 @property (weak, nonatomic) IBOutlet UISegmentedControl *areaSegment;
 @property (weak, nonatomic) IBOutlet UITextField *priceTextField;
 
+@property (weak, nonatomic) IBOutlet UITextField *titleTextField;
 @property (nonatomic, strong) TJMaterialImage *imageFile;
 @property (weak, nonatomic) IBOutlet UIButton *classifyButton;
 
@@ -59,7 +60,7 @@
     TJMaterial *material = [[TJMaterial alloc] init];
     material.materialDescription = self.materialDescriptionTextView.text;
     material.price = @([self.priceTextField.text floatValue]);
-    material.tags = @[@"a",@"b"];
+    material.title = self.titleTextField.text;
     material.status = TJMaterialPengding;
     if (self.areaSegment.selectedSegmentIndex == 0) {
         material.area = TJMaterialAreaBenbu;

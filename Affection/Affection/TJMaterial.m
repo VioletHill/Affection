@@ -20,12 +20,12 @@
 @synthesize price = _price;
 @synthesize images = _images;
 @synthesize area = _area;
-@synthesize tags = _tags;
 @synthesize hoverImage = _hoverImage;
 @synthesize hoverImageWidth = _hoverImageWidth;
 @synthesize hoverImageHeight = _hoverImageHeight;
 @synthesize poster = _poster;
 @synthesize status = _status;
+@synthesize title = _title;
 
 @synthesize classify  = _classify;
 
@@ -82,16 +82,6 @@
     else {
         return TJMaterialAreaJiading;
     }
-}
-
-- (NSArray *)tags
-{
-    return [self objectForKey:@"tags"];
-}
-
-- (void)setTags:(NSArray *)tags
-{
-    [self addUniqueObjectsFromArray:tags forKey:@"tags"];
 }
 
 - (void)setPoster:(TJUser *)poster
@@ -162,6 +152,16 @@
     return [[self objectForKey:@"status"] integerValue];
 }
 
+- (void)setTitle:(NSString *)title
+{
+    [self setObject:title forKey:@"title"];
+}
+
+- (NSString *)title
+{
+    return [self objectForKey:@"title"];
+}
+
 + (TJMaterial *)copyWithBomb:(BmobObject *)object
 {
     TJMaterial *material = [[TJMaterial alloc] init];
@@ -177,6 +177,7 @@
     material.hoverImage = [object objectForKey:@"hoverImage"];
     material.poster = [TJUser copyWithUser:[object objectForKey:@"poster"]];
     material.status = [[object objectForKey:@"status"] integerValue];
+    material.title = [object objectForKey:@"title"];
     
     NSNumber *area = [object objectForKey:@"area"];
     
