@@ -58,6 +58,20 @@
     }];
     
     [self.collectionView triggerPullToRefresh];
+
+    
+    //navigation
+    
+    UIBarButtonItem *spacer1 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
+    spacer1.width = 66;
+    self.navigationItem.leftBarButtonItems = @[self.classifyButton, spacer1];
+    
+    UIBarButtonItem *jumpToMySelfButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"home_btn_me"] style:UIBarButtonItemStyleBordered target:self action:@selector(mySelfButtonPress:)];
+    
+    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSearch target:self action:@selector(gotoSearchViewController)];
+    UIBarButtonItem *spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
+    
+    self.navigationItem.rightBarButtonItems = @[spacer2, jumpToMySelfButton, searchButton];
 }
 
 #pragma mark - Getter & Setter
@@ -148,7 +162,8 @@
 }
 
 #pragma mark - Action 
-- (IBAction)mySelfButtonPress:(id)sender
+
+- (void)mySelfButtonPress:(id)sender
 {
     if ([TJUser getCurrentUser] == nil) {
         [[Routable sharedRouter] open:@"login"];
@@ -167,6 +182,12 @@
     else {
         [[Routable sharedRouter] open:@"post"];
     }
+}
+
+- (void)gotoSearchViewController
+{
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"TJSearchViewController"];
+    [self.navigationController pushViewController:controller animated:YES];
 }
 
 #pragma mark - UICollectionView Datasource

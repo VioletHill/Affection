@@ -31,6 +31,7 @@
 		F3C4E5741AF773750011BD3B /* TJBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E5711AF773750011BD3B /* TJBaseTableViewController.m */; };
 		F3C4E5751AF773750011BD3B /* TJBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E5731AF773750011BD3B /* TJBaseViewController.m */; };
 		F3C4E57C1AF78FFA0011BD3B /* TJMaterialManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F3C4E57B1AF78FFA0011BD3B /* TJMaterialManager.m */; };
+		F3DB929A1B04A82D008EA477 /* TJSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F3DB92991B04A82D008EA477 /* TJSearchViewController.m */; };
 		F3E8B30B1AF86B5F009ADDF2 /* TJDashboardViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E8B30A1AF86B5F009ADDF2 /* TJDashboardViewCell.m */; };
 		F3E8B30D1AF89F24009ADDF2 /* TJDashboardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3E8B30C1AF89F24009ADDF2 /* TJDashboardViewCell.xib */; };
 		F3E8B3101AF8A638009ADDF2 /* TJDashboardViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = F3E8B30F1AF8A638009ADDF2 /* TJDashboardViewLayout.m */; };
@@ -105,6 +106,8 @@
 		F3C4E5731AF773750011BD3B /* TJBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJBaseViewController.m; sourceTree = "<group>"; };
 		F3C4E57A1AF78FFA0011BD3B /* TJMaterialManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMaterialManager.h; sourceTree = "<group>"; };
 		F3C4E57B1AF78FFA0011BD3B /* TJMaterialManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJMaterialManager.m; sourceTree = "<group>"; };
+		F3DB92981B04A82D008EA477 /* TJSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJSearchViewController.h; sourceTree = "<group>"; };
+		F3DB92991B04A82D008EA477 /* TJSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJSearchViewController.m; sourceTree = "<group>"; };
 		F3E8B3091AF86B5F009ADDF2 /* TJDashboardViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJDashboardViewCell.h; sourceTree = "<group>"; };
 		F3E8B30A1AF86B5F009ADDF2 /* TJDashboardViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJDashboardViewCell.m; sourceTree = "<group>"; };
 		F3E8B30C1AF89F24009ADDF2 /* TJDashboardViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TJDashboardViewCell.xib; sourceTree = "<group>"; };
@@ -272,6 +275,8 @@
 				F34C49F51AFB8CE900BC6170 /* TJMyPublishViewController.m */,
 				F37331A91AFCD28500522186 /* TJUserCenterViewController.h */,
 				F37331AA1AFCD28500522186 /* TJUserCenterViewController.m */,
+				F3DB92981B04A82D008EA477 /* TJSearchViewController.h */,
+				F3DB92991B04A82D008EA477 /* TJSearchViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -491,6 +496,7 @@
 				F34C49E21AFB289700BC6170 /* TJClassifyViewController.m in Sources */,
 				F37331AB1AFCD28500522186 /* TJUserCenterViewController.m in Sources */,
 				F34C49F31AFB877900BC6170 /* TJSelfCenterViewController.m in Sources */,
+				F3DB929A1B04A82D008EA477 /* TJSearchViewController.m in Sources */,
 				F3E8B3101AF8A638009ADDF2 /* TJDashboardViewLayout.m in Sources */,
 				F3EC4F4F1AEFC38C0090AF7A /* TJClassifyManager.m in Sources */,
 				F34C49F01AFB5EFD00BC6170 /* TJMaterialDetailViewController.m in Sources */,

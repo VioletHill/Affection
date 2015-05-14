@@ -136,7 +136,7 @@
     }
 }
 
-- (void)searchForMaterialWithType:(TJMaterialArea)area key:(NSString *)key limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete
+- (void)searchForKey:(NSString *)key limit:(NSInteger)limit skip:(NSInteger)skip complete:(void (^)(NSArray *, NSError *))complete
 {
     key = [key stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     if ([key isEqualToString:@""]) {
@@ -148,6 +148,7 @@
         [query orderByDescending:@"createdAt"];
         [query whereKey:@"title" matchesWithRegex:[NSString stringWithFormat:@".*%@.*",key]];
         [query includeKey:@"poster"];
+        query.skip = skip;
         query.limit = 1000;
         /**
          *  TO DO: add Tag search here

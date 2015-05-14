@@ -34,8 +34,8 @@
 {
     [super prepareLayout];
     
-    self.column0 = 0;
-    self.column1 = 0;
+    self.column0 = 10;
+    self.column1 = 10;
     self.positionDictionary = nil;
     self.attrs = nil;
     
