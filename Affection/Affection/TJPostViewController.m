@@ -55,6 +55,15 @@
 
 #pragma mark - Post
 
+- (void)clearMaterial
+{
+    self.materialDescriptionTextView.text = @"";
+    self.titleTextField.text = @"";
+    self.priceTextField.text = @"";
+    self.imageFile = nil;
+    [self.postImageButton setImage:[UIImage imageNamed:@"post_icon_camare"] forState:UIControlStateNormal];
+}
+
 - (IBAction)postButtonPress:(UIButton *)sender
 {
     TJMaterial *material = [[TJMaterial alloc] init];
@@ -94,6 +103,7 @@
                 }
                 else {
                     [MBProgressHUD showSucessProgressInView:nil withText:@"发布成功"];
+                    [self clearMaterial];
                 }
             }];
         }

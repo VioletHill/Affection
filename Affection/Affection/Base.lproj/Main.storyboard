@@ -101,15 +101,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUN-ir-nXB">
-                                <rect key="frame" x="280" y="466" width="40" height="40"/>
-                                <state key="normal" image="home_btn_post">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="postButtonPress:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="x93-F5-ibe"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="r41-U1-6Y6">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -122,13 +113,12 @@
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="r41-U1-6Y6" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="39y-vj-0jK"/>
                             <constraint firstAttribute="trailing" secondItem="r41-U1-6Y6" secondAttribute="trailing" id="AK6-p7-3OJ"/>
                             <constraint firstItem="r41-U1-6Y6" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="JDH-UZ-jSA"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="r41-U1-6Y6" secondAttribute="bottom" id="dV1-UY-wRh"/>
-                            <constraint firstAttribute="centerX" secondItem="lUN-ir-nXB" secondAttribute="centerX" id="kGb-Te-ctz"/>
-                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="lUN-ir-nXB" secondAttribute="bottom" constant="30" id="w03-Fp-AdP"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="6iG-Kl-m65">
@@ -156,7 +146,6 @@
                         <outlet property="classifyButton" destination="qiN-eT-JIP" id="q50-Xt-Otn"/>
                         <outlet property="collectionView" destination="r41-U1-6Y6" id="W3C-pw-ZMC"/>
                         <outlet property="collectionViewLayout" destination="mpu-Q4-qTu" id="CwC-oa-vES"/>
-                        <outlet property="postButton" destination="lUN-ir-nXB" id="Xbn-f4-5Kj"/>
                         <segue destination="Ca8-6b-KO3" kind="push" id="kPa-R8-PDK"/>
                         <segue destination="ZnO-qE-KEp" kind="push" id="Aq9-WY-TIY"/>
                         <segue destination="Mi4-V5-w0W" kind="push" id="g3v-3m-qP1"/>
@@ -1289,7 +1278,6 @@
         <image name="defaultProvide" width="180" height="180"/>
         <image name="detail_chat" width="28" height="15"/>
         <image name="detail_phone" width="39" height="38"/>
-        <image name="home_btn_post" width="40" height="40"/>
         <image name="post_icon_camare" width="41" height="36"/>
     </resources>
 </document>

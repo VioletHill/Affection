@@ -83,6 +83,10 @@
     }
     
     [self setMaterialStatus];
+    
+    if (self.material.title && ![self.material.title isEqualToString:@""]) {
+        self.title = self.material.title;
+    }
 }
 
 - (void)viewDidLayoutSubviews

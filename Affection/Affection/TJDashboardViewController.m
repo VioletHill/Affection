@@ -20,7 +20,7 @@
 @interface TJDashboardViewController()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *areaSegment;
-@property (weak, nonatomic) IBOutlet UIButton *postButton;
+@property (weak, nonatomic) UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet TJDashboardViewLayout *collectionViewLayout;
 
@@ -47,7 +47,7 @@
     
     self.area = TJMaterialAreaBenbu;
     
-    self.postButton.layer.zPosition = 1;
+
    // self.postButton.
     
     self.classifyName = @"全部";
@@ -72,6 +72,10 @@
     UIBarButtonItem *spacer2 = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFixedSpace target:self action:nil];
     
     self.navigationItem.rightBarButtonItems = @[spacer2, jumpToMySelfButton, searchButton];
+    
+    self.postButton.layer.zPosition = 100;
+    
+    [self.postButton addTarget:self action:@selector(postButtonPress:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 #pragma mark - Getter & Setter
@@ -90,6 +94,22 @@
         _data = data;
         self.collectionViewLayout.data = data;
     }
+}
+
+- (UIButton *)postButton
+{
+    if (_postButton == nil) {
+        _postButton = [UIButton buttonWithType:UIButtonTypeSystem];
+        
+        [_postButton setBackgroundImage:[UIImage imageNamed:@"home_btn_post"] forState:UIControlStateNormal];
+        [self.view addSubview:_postButton];
+        
+        _postButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_postButton]-30-|" options:0 metrics:nil views:NSDictionaryOfVariableBindings(_postButton)]];
+        
+        [self.view addConstraint:[NSLayoutConstraint constraintWithItem:_postButton attribute:NSLayoutAttributeCenterX relatedBy:NSLayoutRelationEqual toItem:self.view attribute:NSLayoutAttributeCenterX multiplier:1.0 constant:0]];
+    }
+    return _postButton;
 }
 
 - (void)setCollectionView:(UICollectionView *)collectionView
