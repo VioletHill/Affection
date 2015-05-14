@@ -14,4 +14,6 @@
 
 - (void)setCellWithClassify:(TJClassify *)classify;
 
+@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
+
 @end

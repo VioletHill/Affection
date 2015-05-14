@@ -11,8 +11,6 @@
 
 @interface TJClassifyTableViewCell()
 
-@property (weak, nonatomic) IBOutlet UIImageView *titleImageView;
-
 @property (weak, nonatomic) IBOutlet UILabel *classifyLabel;
 
 @end

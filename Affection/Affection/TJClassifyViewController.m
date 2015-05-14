@@ -80,6 +80,8 @@
 {
     TJClassifyTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([TJClassifyTableViewCell class])];
     [cell setCellWithClassify:self.data[indexPath.row]];
+    NSString *imageName = [[NSString alloc] initWithFormat:@"classify%ld", (long)indexPath.row];
+    [cell.titleImageView setImage:[UIImage imageNamed:imageName]];
     return cell;
 }
 
