@@ -20,7 +20,7 @@
 @interface TJDashboardViewController()<UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *areaSegment;
-@property (weak, nonatomic) UIButton *postButton;
+@property (strong, nonatomic) UIButton *postButton;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet TJDashboardViewLayout *collectionViewLayout;
 

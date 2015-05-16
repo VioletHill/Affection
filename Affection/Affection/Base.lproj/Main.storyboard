@@ -948,7 +948,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-U2-Xg3">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-U2-Xg3" userLabel="地区">
                                 <rect key="frame" x="0.0" y="284" width="600" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="地区" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McT-PX-zb8">
@@ -974,7 +974,7 @@
                                     <constraint firstItem="eUk-gI-oce" firstAttribute="leading" secondItem="McT-PX-zb8" secondAttribute="trailing" constant="20" id="rBM-X6-pD3"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oum-uJ-ui1">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oum-uJ-ui1" userLabel="价格">
                                 <rect key="frame" x="0.0" y="328" width="600" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhH-aA-K0D">
@@ -999,7 +999,7 @@
                                     <constraint firstAttribute="trailing" secondItem="Tde-oy-CQ0" secondAttribute="trailing" constant="20" id="p3J-rm-sFM"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSV-1b-KMB">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bSV-1b-KMB" userLabel="分类">
                                 <rect key="frame" x="0.0" y="372" width="600" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分类" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ktU-5h-RlD">
@@ -1080,19 +1080,6 @@
                                     <constraint firstAttribute="centerY" secondItem="aYl-lS-V7b" secondAttribute="centerY" id="wZF-Ne-Zd6"/>
                                 </constraints>
                             </view>
-                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DqK-8q-x71">
-                                <rect key="frame" x="0.0" y="380" width="600" height="162"/>
-                                <color key="backgroundColor" red="0.21176470589999999" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <gestureRecognizers/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="150" id="X1t-wx-m7m"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="dataSource" destination="Ca8-6b-KO3" id="HJd-nt-k7c"/>
-                                    <outlet property="delegate" destination="Ca8-6b-KO3" id="sHK-ZN-yTA"/>
-                                </connections>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUd-cV-QTd" userLabel="照片">
                                 <rect key="frame" x="250" y="30" width="100" height="100"/>
                                 <color key="backgroundColor" red="0.21176470589999999" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -1137,9 +1124,6 @@
                                         <rect key="frame" x="0.0" y="-204" width="600" height="536"/>
                                         <color key="backgroundColor" red="0.40784313725490196" green="0.40784313725490196" blue="0.40784313725490196" alpha="0.70000000000000007" colorSpace="custom" customColorSpace="sRGB"/>
                                         <gestureRecognizers/>
-                                        <connections>
-                                            <outletCollection property="gestureRecognizers" destination="Jl7-0A-1Lu" appends="YES" id="3mg-Zk-vRD"/>
-                                        </connections>
                                     </view>
                                 </subviews>
                                 <constraints>
@@ -1152,6 +1136,19 @@
                                     <constraint firstAttribute="centerY" secondItem="jeU-hY-98a" secondAttribute="centerY" id="YJj-bp-GZ1"/>
                                 </constraints>
                             </view>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DqK-8q-x71">
+                                <rect key="frame" x="0.0" y="380" width="600" height="162"/>
+                                <color key="backgroundColor" red="0.21176470589999999" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <gestureRecognizers/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="X1t-wx-m7m"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="Ca8-6b-KO3" id="HJd-nt-k7c"/>
+                                    <outlet property="delegate" destination="Ca8-6b-KO3" id="sHK-ZN-yTA"/>
+                                </connections>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1180,6 +1177,9 @@
                             <constraint firstItem="bSV-1b-KMB" firstAttribute="top" secondItem="oum-uJ-ui1" secondAttribute="bottom" id="tmS-gg-zfZ"/>
                             <constraint firstAttribute="trailing" secondItem="JJY-dn-Fvd" secondAttribute="trailing" id="xph-AU-3Bk"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Jl7-0A-1Lu" appends="YES" id="Tsg-ox-pDK"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="发布" id="nKe-yF-i4N"/>
                     <connections>
