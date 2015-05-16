@@ -67,10 +67,22 @@
 - (IBAction)postButtonPress:(UIButton *)sender
 {
     TJMaterial *material = [[TJMaterial alloc] init];
-    material.materialDescription = self.materialDescriptionTextView.text;
+    material.materialDescription = [self.materialDescriptionTextView.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     material.price = @([self.priceTextField.text floatValue]);
-    material.title = self.titleTextField.text;
+    material.title = [self.titleTextField.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     material.status = TJMaterialPengding;
+    
+    
+    if ([material.materialDescription isEqualToString:@""]) {
+        [MBProgressHUD showErrorProgressInView:nil withText:@"描述不能为空"];
+        return;
+    }
+    
+    if ([material.title isEqualToString:@""]) {
+        [MBProgressHUD showErrorProgressInView:nil withText:@"标题不能为空"];
+        return;
+    }
+    
     if (self.areaSegment.selectedSegmentIndex == 0) {
         material.area = TJMaterialAreaBenbu;
     }
