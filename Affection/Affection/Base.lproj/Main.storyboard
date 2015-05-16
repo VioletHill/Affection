@@ -764,9 +764,42 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="F99-nl-Rp9">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                            <rect key="frame" x="0.0" y="322" width="600" height="63"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O2c-me-PoX">
+                                    <rect key="frame" x="10" y="10" width="580" height="44"/>
+                                    <color key="backgroundColor" red="0.21176470589999999" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="44" id="2fJ-GZ-g1k"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
+                                    <state key="normal" title="登   出">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="color" keyPath="layer.borderUIColor">
+                                            <color key="value" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.borderWidth">
+                                            <integer key="value" value="1"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="logoutButtonPress:" destination="Coi-Os-5Nu" eventType="touchUpInside" id="x9X-kB-jvF"/>
+                                    </connections>
+                                </button>
+                            </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="O2c-me-PoX" firstAttribute="leading" secondItem="F99-nl-Rp9" secondAttribute="leading" constant="10" id="8ZW-gO-9L5"/>
+                                <constraint firstItem="O2c-me-PoX" firstAttribute="top" secondItem="F99-nl-Rp9" secondAttribute="top" constant="10" id="Uan-bE-J3Z"/>
+                                <constraint firstAttribute="trailing" secondItem="O2c-me-PoX" secondAttribute="trailing" constant="10" id="iBL-jM-TwH"/>
+                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="1TF-uV-Byf">
@@ -852,6 +885,7 @@
                                                         <segment title="男"/>
                                                         <segment title="女"/>
                                                     </segments>
+                                                    <color key="tintColor" red="0.21176470589999999" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <connections>
                                                         <action selector="didGenderSegmentValueChange:" destination="Coi-Os-5Nu" eventType="valueChanged" id="RW7-vg-1ve"/>
                                                     </connections>

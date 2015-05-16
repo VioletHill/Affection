@@ -178,4 +178,11 @@
     [self.user updateInBackground];
 }
 
+- (IBAction)logoutButtonPress:(UIButton *)sender
+{
+    [TJUser logout];
+    [MBProgressHUD showSucessProgressInView:nil withText:@"成功登出"];
+    [self.navigationController popToRootViewControllerAnimated:YES];
+}
+
 @end
