@@ -197,6 +197,7 @@
                 }];
             }
             else {
+                [loading hide:YES];
                 [MBProgressHUD showErrorProgressInView:nil withText:@"图片上传失败"];
             }
             

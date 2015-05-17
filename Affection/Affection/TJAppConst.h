@@ -9,6 +9,6 @@
 #ifndef Affection_TJAppConst_h
 #define Affection_TJAppConst_h
 
-#define kDefaultLimit 1
+#define kDefaultLimit 20
 
 #endif
