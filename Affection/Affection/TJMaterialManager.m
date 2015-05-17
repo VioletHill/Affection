@@ -149,7 +149,7 @@
         [query whereKey:@"title" matchesWithRegex:[NSString stringWithFormat:@".*%@.*",key]];
         [query includeKey:@"poster"];
         query.skip = skip;
-        query.limit = 1000;
+        query.limit = limit;
         /**
          *  TO DO: add Tag search here
          */
