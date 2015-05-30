@@ -54,6 +54,9 @@
     else if (indexPath.row == 1) {
         [self changeName];
     }
+    else if (indexPath.row == 3) {
+        [self changePassword];
+    }
 }
 
 #pragma mark - Change Avatar
@@ -163,6 +166,56 @@
     [alertView show];
 }
 
+- (void)changePassword
+{
+    UIAlertView *alertView = [UIAlertView bk_alertViewWithTitle:@"修改密码"];
+    alertView.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
+    [alertView textFieldAtIndex:0].secureTextEntry = YES;
+    [alertView textFieldAtIndex:0].placeholder = @"原密码";
+    [alertView textFieldAtIndex:1].placeholder = @"新密码";
+    [alertView bk_setCancelButtonWithTitle:@"取消" handler:nil];
+    [alertView bk_addButtonWithTitle:@"确定" handler:^(){
+        NSString *oldPassword = [alertView textFieldAtIndex:0].text;
+        NSString *newPassword = [alertView textFieldAtIndex:1].text;
+        
+        if (![TJUserManager isAvailablePassword:newPassword]) {
+            [MBProgressHUD showErrorProgressInView:nil withText:[NSString stringWithFormat:@"密码不足%d位",[TJUserManager getMinPasswordLength]]];
+            return;
+        }
+        
+        MBProgressHUD *loading = [MBProgressHUD progressHUDNetworkLoadingInView:nil withText:@"请稍后"];
+        
+        [BmobUser loginWithUsernameInBackground:self.user.mobileNumber password:oldPassword block:^(BmobUser *user, NSError *error) {
+            
+            if (error) {
+                [loading hide:YES];
+                if (error.code == 101) {
+                    [MBProgressHUD showErrorProgressInView:nil withText:@"密码错误"];
+                    return;
+                }
+                NSLog(@"%@", error.description);
+                [MBProgressHUD showErrorProgressInView:nil withText:error.userInfo[@"error"]];
+            }
+            else {
+                self.user.password = newPassword;
+                
+                [self.user updateInBackgroundWithResultBlock:^(BOOL success, NSError *error) {
+                    [loading hide:YES];
+                    if (success) {
+                        [MBProgressHUD showSucessProgressInView:nil withText:@"修改密码成功"];
+                    }
+                    else {
+                        [MBProgressHUD showErrorProgressInView:nil withText:@"密码修改失败"];
+                        NSLog(@"%@",error.description);
+                    }
+                }];
+ 
+            }
+        }];
+        
+    }];
+    [alertView show];
+}
 
 #pragma mark - Segment Value Change
 
@@ -184,5 +237,7 @@
     [MBProgressHUD showSucessProgressInView:nil withText:@"成功登出"];
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
+
+
 
 @end

@@ -93,6 +93,9 @@
             
             if (array.count < kDefaultLimit) {
                 self.hasMore = NO;
+                if (self.page == 1 && array.count == 0) {
+                  [MBProgressHUD showErrorProgressInView:nil withText:@"没有找到物品"];
+                }
             }
         }
     }];
@@ -166,6 +169,7 @@
 
 - (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
+    [self.searchBar resignFirstResponder];
     self.page = 0;
     self.searchText = [self.searchBar.text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]];
     

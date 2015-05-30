@@ -29,7 +29,7 @@
 
 - (void)viewDidLoad
 {
-    if (self.user.objectId == [TJUser getCurrentUser].objectId) {
+    if ([self.user.objectId isEqualToString:[TJUser getCurrentUser].objectId] ) {
         self.title = @"我的发布";
     }
     else {

@@ -136,7 +136,12 @@
     self.hasMore = YES;
     
     [[TJMaterialManager sharedMaterialManager] queryForMaterialWithType:self.area classify:self.classifyName limit:kDefaultLimit skip:self.page * kDefaultLimit complete:^(NSArray *array, NSError *error) {
-        [self.collectionView.pullToRefreshView stopAnimating];
+        
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC));
+        dispatch_after(popTime, dispatch_get_main_queue(), ^(void) {
+            [self.collectionView.pullToRefreshView stopAnimating];
+        });
+        
         if (error) {
             [MBProgressHUD showErrorProgressInView:nil withText:@"加载失败"];
         }
