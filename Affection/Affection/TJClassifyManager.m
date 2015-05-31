@@ -44,6 +44,7 @@
 
 - (void)getAllClassifies:(void (^)(NSArray *, NSError *))complete
 {
+    
     BmobQuery *query = [BmobQuery queryWithClassName:@"classify"];
     query.limit = 1000;
     
