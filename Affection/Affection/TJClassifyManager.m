@@ -42,6 +42,21 @@
     return self.localClassify;
 }
 
+- (NSMutableArray *)sortWithClassify:(NSMutableArray *)classifyArr
+{
+    NSMutableArray *arr = [NSMutableArray array];
+    NSArray *local = self.getLocalClassify;
+    for (NSString *classifyName in local) {
+        for (TJClassify *classify in classifyArr) {
+            if ([classify.classifyName isEqualToString:classifyName]) {
+                [arr addObject:classify];
+                break;
+            }
+        }
+    }
+    return arr;
+}
+
 - (void)getAllClassifies:(void (^)(NSArray *, NSError *))complete
 {
     
@@ -57,6 +72,8 @@
             for (BmobObject *object in array) {
                 [result addObject:[TJClassify copyWithBmobObject:object]];
             }
+            
+            result = [self sortWithClassify:result];
             
             TJClassify *allClassify = [[TJClassify alloc] init];
             allClassify.classifyName = @"全部";

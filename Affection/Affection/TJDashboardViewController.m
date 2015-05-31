@@ -21,7 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UISegmentedControl *areaSegment;
 @property (strong, nonatomic) UIButton *postButton;
-@property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
+
 @property (weak, nonatomic) IBOutlet TJDashboardViewLayout *collectionViewLayout;
 
 @property (nonatomic, assign) TJMaterialArea area;

@@ -10,6 +10,7 @@
 #import "TJClassifyManager.h"
 #import "TJClassifyTableViewCell.h"
 #import "MBProgressHUD+AppProgressView.h"
+#import <SVPullToRefresh.h>
 
 @interface TJClassifyViewController ()<UITableViewDataSource, UITableViewDelegate>
 
@@ -98,7 +99,9 @@
     TJClassify *classify = self.data[indexPath.row];
     self.controller.classifyName = classify.classifyName;
     
-    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController dismissViewControllerAnimated:YES completion:^() {
+        [self.controller.collectionView triggerPullToRefresh];
+    }];
 }
 
 @end
