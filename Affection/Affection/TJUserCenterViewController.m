@@ -31,6 +31,11 @@ const int publishCellRow = 3;
     [self.avatarImageView setImageWithURL:[NSURL URLWithString:self.user.avatar.url] placeholderImage:[UIImage imageNamed:@"defaultProvide"] usingActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
 }
 
+- (void)dealloc
+{
+  NSLog(@"delloc");
+}
+
 #pragma mark - Getter & Setter
 
 - (NSArray *)data

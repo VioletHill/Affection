@@ -26,6 +26,11 @@
     
 }
 
+- (void)dealloc
+{
+  NSLog(@"delloc");
+}
+
 #pragma mark - Getter & Setter
 
 - (NSArray *)data
